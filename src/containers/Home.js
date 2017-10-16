@@ -38,21 +38,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const list = [
-  {
-    name: 'Amy Farha',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-    subtitle: 'Vice President',
-    badge: '3',
-  },
-  {
-    name: 'Chris Jackson',
-    avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-    subtitle: 'Vice Chairman',
-    badge: '2',
-  },
 
-];
 
 @connect(
   // passing state as props
