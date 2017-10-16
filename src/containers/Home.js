@@ -3,9 +3,10 @@ import Moment from 'react-moment';
 import 'moment/locale/es';
 import PropTypes from 'prop-types';
 import { StyleSheet, Text, View, ListView, TouchableOpacity } from 'react-native';
-import { List, ListItem, Button, Header, Card } from 'react-native-elements';
+import { List, ListItem, Button, Header, Card, Badge } from 'react-native-elements';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import * as HabitActions from '../actions/habits';
 
 
@@ -29,6 +30,12 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  buttonAdd: {
+    margin: '5%',
+    width:'40%', 
+    backgroundColor: '#83B96B', 
+    borderRadius: 100
+  }
 });
 
 const list = [
@@ -76,9 +83,19 @@ export default class Home extends Component {
     this.props.navigation.navigate('Counter');
   };
 
-  render() {
-    const { habits } = this.props;
+  toAddHabit = () => {
+    this.props.navigation.navigate('AddHabit');
+  };
 
+  timeBadge = (timestamp) => {
+    const timeStr = moment(timestamp).fromNow();
+    return timeStr
+  }
+
+  render() {
+    const {habits} = this.props;
+    let currentHabits = habits.get('habits');
+    console.log("asqdasdadsa: ", currentHabits);
     return (
       <View style={styles.container}>
         <Header
@@ -91,30 +108,31 @@ export default class Home extends Component {
           <Text h1 style={styles.welcome}>Mis Habitos</Text>
           <List>
             {
-              habits.get('habits').map((item, i) => (
+              currentHabits.map((item, i) => (
                 <ListItem
                   key={i}
                   title={item.name}
                   leftIcon={{name: 'timer'}}
-                  badge={{element: <Moment toNow element={Text}>{item.lastTimestamp}</Moment>}}
-                  // avatar={item.avatar_url}
+                  badge={{value: this.timeBadge(item.lastTimestamp)}}
                 />
               ))
             }
           </List>
           <Button
+            onPress={this.toAddHabit}
             raised
             icon={{name: 'add'}}
-            buttonStyle={{width:'40%', backgroundColor: 'red', borderRadius: 100}}
+            buttonStyle={styles.buttonAdd}
             title='Agregar'
             textStyle={{textAlign: 'center'}}
             raised={true}
           />
         </Card>
-        
+        {/*
         <TouchableOpacity onPress={this.toCounter}>
           <Text style={styles.instructions}>Navigate to Counter</Text>
         </TouchableOpacity>
+        */}
       </View>
     );
   }

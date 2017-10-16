@@ -9,10 +9,33 @@ const initialState = Immutable.Map({
     ] 
 });
 
+/*
+* Using Inmutable update patterns:
+* https://github.com/reactjs/redux/blob/master/docs/recipes/reducers/ImmutableUpdatePatterns.md#inserting-and-removing-items-in-arrays
+*/
+
+insertItem = (array, action) => {
+    let newArray = array.slice();
+    newArray.splice(action.name, 0, action.payload);
+    return newArray;
+}
+
+removeItem = (array, action) => {
+    let newArray = array.slice();
+    newArray.splice(action.name, 1);
+    return newArray;
+}
+
+/* Our main reducer */
+
 export default (state = initialState, action) => {
-  console.log("@@@@@", action.type); 
-  return state;
-//   const reduceFn = actionsMap[action.type];
-//   if (!reduceFn) return state;
-//   return reduceFn(state, action);
+  const prevState = state.get('habits');
+  switch (action.type) {
+    case 'add_habit':
+        const newState = insertItem(prevState, action)
+        return state
+            .set('habits', newState);
+    default:
+      return state
+  }
 };
