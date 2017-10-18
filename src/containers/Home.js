@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Moment from 'react-moment';
 import 'moment/locale/es';
 import PropTypes from 'prop-types';
-import { StyleSheet, Text, View, ListView, TouchableOpacity } from 'react-native';
-import { List, ListItem, Button, Header, Card, Badge } from 'react-native-elements';
+import { StyleSheet, Text, View, ListView, TouchableOpacity, ScrollView } from 'react-native';
+import { List, ListItem, Button, Card, Badge } from 'react-native-elements';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import moment from 'moment';
@@ -81,29 +81,25 @@ export default class Home extends Component {
   render() {
     const {habits} = this.props;
     let currentHabits = habits.get('habits');
-    console.log("asqdasdadsa: ", currentHabits);
+    // console.log("asqdasdadsa: ", currentHabits);
     return (
       <View style={styles.container}>
-        <Header
-          backgroundColor='#255B86'
-          leftComponent={{ icon: 'menu', color: '#fff' }}
-          centerComponent={{ text: 'Pepe Grillo', style: { color: '#fff' } }} 
-          rightComponent={{ icon: 'home', color: '#fff' }}
-        />
         <Card style={{backgroundColor: '#fff', width:'90%'}}>
           <Text h1 style={styles.welcome}>Mis Habitos</Text>
-          <List>
-            {
-              currentHabits.map((item, i) => (
-                <ListItem
-                  key={i}
-                  title={item.name}
-                  leftIcon={{name: 'timer'}}
-                  badge={{value: this.timeBadge(item.lastTimestamp)}}
-                />
-              ))
-            }
-          </List>
+          <ScrollView>
+            <List>
+              {
+                currentHabits.map((item, i) => (
+                  <ListItem
+                    key={i}
+                    title={item.name}
+                    leftIcon={{name: 'timer'}}
+                    badge={{value: this.timeBadge(item.lastTimestamp)}}
+                  />
+                ))
+              }
+            </List>
+          </ScrollView>
           <Button
             onPress={this.toAddHabit}
             raised

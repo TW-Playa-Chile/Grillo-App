@@ -48,6 +48,11 @@ $ npm run android
 
 En modo desarrollo puedes instalar [React Native Debugger](https://github.com/jhen0409/react-native-debugger) como el debugger por efecto. También puedes usar [Remote Redux DevTools](https://github.com/zalmoxisus/remote-redux-devtools) y [RemoteDev RN Debugger](https://github.com/jhen0409/remotedev-rn-debugger).
 
+Por ejemplo puedes abrir nel debbuger con: 
+```
+open "rndebugger://set-debugger-loc?host=localhost&port=8081"
+```
+
 ## Test
 
 ```bash

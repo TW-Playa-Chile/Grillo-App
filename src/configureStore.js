@@ -23,7 +23,7 @@ if (__DEV__) {
 
 const enhancer = composeEnhancers(
   applyMiddleware(thunk),
-  autoRehydrate()
+  // autoRehydrate()
 );
 
 

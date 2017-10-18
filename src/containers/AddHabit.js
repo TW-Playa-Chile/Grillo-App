@@ -38,20 +38,24 @@ export default class AddHabit extends Component {
     super(props);
     const { addHabit } = props;
     this.state = {
-        habit: ''
+        habit: '',
+        habitError: false,
     }
     this.addHabit = (name) => addHabit(name);
   }
 
   addHabitToStore = () => {
-    // console.log("@@@@@@@@@@@@@habit state: ", this.state.habit);
-    this.addHabit(this.state.habit);
-    this.props.navigation.goBack();
+    if (this.state.habit.length<1) {
+        console.log("nothing");
+        this.setState({ habitError: true });
+    } else {
+        this.addHabit(this.state.habit);
+        this.props.navigation.goBack();
+    }   
   };
 
   enterHabit = (txt) => {
-    console.log("#", txt)
-    this.setState({ habit: txt });
+    this.setState({ habit: txt }); 
   };
 
   handleBack = () => {
@@ -59,15 +63,19 @@ export default class AddHabit extends Component {
   };
 
   render() {
+    const { habitError } = this.state;
     return (
       <View style={styles.container}>
         <Text h1>NUEVO HÁBITO</Text>
         <FormLabel>Ingresa tu nuevo habito</FormLabel>
-        <FormInput 
+        <FormInput
+            shake={!habitError ? false : true}
             ref={input => this.textInput = input}
             onChangeText={this.enterHabit}
         />
-        {/* <FormValidationMessage>Hubo un error</FormValidationMessage> */}
+        { habitError && 
+             <FormValidationMessage >Debes ingresar un nombre para agregar el habito</FormValidationMessage>
+        }
         <Button
             onPress={this.addHabitToStore}
             raised
