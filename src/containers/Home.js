@@ -1,29 +1,33 @@
 import React, { Component } from 'react';
-import Moment from 'react-moment';
-import 'moment/locale/es';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { StyleSheet, Text, View, ListView, TouchableOpacity, ScrollView } from 'react-native';
 import { List, ListItem, Button, Card, Badge } from 'react-native-elements';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import Moment from 'react-moment';
+import 'moment/locale/es';
 import moment from 'moment';
 import * as HabitActions from '../actions/habits';
 
+import { fontMaker } from './../helpers/fontMaker';
+import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, BORDER_RADIUS, FONT_NORMAL, FONT_BOLD } from './../styles/common';
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#255B86',
+    backgroundColor: COLOR_PRIMARY,
   },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#DDDDDD',
+    backgroundColor: COLOR_BACKGROUND,
+    
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+    // ...FONT_BOLD,
   },
   instructions: {
     textAlign: 'center',
@@ -33,8 +37,8 @@ const styles = StyleSheet.create({
   buttonAdd: {
     margin: '5%',
     width:'40%', 
-    backgroundColor: '#83B96B', 
-    borderRadius: 100
+    backgroundColor: COLOR_SECONDARY, 
+    borderRadius: BORDER_RADIUS
   }
 });
 
@@ -74,7 +78,7 @@ export default class Home extends Component {
   };
 
   timeBadge = (timestamp) => {
-    const timeStr = moment(timestamp).fromNow();
+    const timeStr = moment(timestamp).fromNow().replace("hace ", "");
     return timeStr
   }
 

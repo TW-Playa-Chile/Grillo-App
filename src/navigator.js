@@ -18,8 +18,8 @@ const AppNavigator = new StackNavigator(
       header: <Header
         backgroundColor='#255B86'
         leftComponent={{ icon: 'menu', color: '#fff' }}
-        centerComponent={{ text: 'Pepe Grillo', style: { color: '#fff' } }} 
-        rightComponent={{ icon: 'home', color: '#fff' }}
+        centerComponent={{ text: 'Grillo App', style: { color: '#fff' } }} 
+        // rightComponent={{ icon: 'home', color: '#fff' }}
       />,
     },
   },

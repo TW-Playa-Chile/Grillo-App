@@ -16,6 +16,11 @@
     "hostname": "localhost",
     "port": 5678
   },
+  "rnpm": {
+    "assets": [
+      "app/fonts"
+    ]
+  },
   "dependencies": {
     "immutability-helper": "^2.4.0",
     "immutable": "^3.7.6",
