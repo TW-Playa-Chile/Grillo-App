@@ -3,9 +3,9 @@ import Immutable from 'immutable';
 
 const initialState = Immutable.Map({ 
     habits: [
-        {name: 'no comeras', lastTimestamp: '2017-10-10T12:59-0500'},
-        {name: 'no beberas', lastTimestamp: '2017-10-14T12:59-0500'},
-        {name: 'no bailaras', lastTimestamp: '2017-10-16T12:59-0500'}
+        {name: 'no comeras', startDate: '2017-10-10T12:59-0500'},
+        {name: 'no beberas', startDate: '2017-10-14T12:59-0500'},
+        {name: 'no bailaras', startDate: '2017-10-16T12:59-0500'}
     ] 
 });
 

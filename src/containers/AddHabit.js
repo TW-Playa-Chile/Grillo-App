@@ -40,16 +40,15 @@ const styles = StyleSheet.create({
       marginTop: 15,
     },
   });
+
+
 @connect(
   null,
   dispatch => bindActionCreators(HabitActions, dispatch),
 )
-export default class AddHabit extends Component {
-  static propTypes = {
-    addHabit: PropTypes.func.isRequired,
-    navigation: PropTypes.object.isRequired,
-  };
 
+
+export default class AddHabit extends Component {
   constructor(props) {
     super(props);
     const { addHabit } = props;
@@ -109,7 +108,10 @@ export default class AddHabit extends Component {
       </View>
     );
   }
-
+  static propTypes = {
+    addHabit: PropTypes.func.isRequired,
+    // navigation: PropTypes.object.isRequired,
+  };
   
 }
 

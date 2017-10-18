@@ -3,7 +3,7 @@
 import { Platform, AsyncStorage } from 'react-native';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { persistStore, autoRehydrate } from 'redux-persist'
+import { persistStore, autoRehydrate } from 'redux-persist';
 import reducer from './reducers';
 import * as actionCreators from './actions/counter';
 

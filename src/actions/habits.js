@@ -1,13 +1,9 @@
-import moment from 'moment';
+import { Habit, status } from './../constants/habit';
 
 export function addHabit(name) {
-    
-    let lastTimestamp = moment().format(); 
-    let habit = {
-        name: name,
-        lastTimestamp: lastTimestamp,
-    }
-    console.log('adding habit:', habit);
+    // status: active, 
+    let habit = new Habit(name);
+    console.log(habit);
     return {
       type: 'add_habit',
       payload: habit

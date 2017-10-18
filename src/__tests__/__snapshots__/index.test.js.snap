@@ -337,7 +337,7 @@ exports[`renders correctly 1`] = `
                                     ]
                                   }
                                 >
-                                  8 días
+                                  unos segundos
                                 </Text>
                               </View>
                             </View>
@@ -604,7 +604,7 @@ exports[`renders correctly 1`] = `
                                     ]
                                   }
                                 >
-                                  4 días
+                                  unos segundos
                                 </Text>
                               </View>
                             </View>
@@ -871,7 +871,7 @@ exports[`renders correctly 1`] = `
                                     ]
                                   }
                                 >
-                                  2 días
+                                  unos segundos
                                 </Text>
                               </View>
                             </View>

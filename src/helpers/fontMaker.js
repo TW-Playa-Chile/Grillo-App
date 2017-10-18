@@ -1,5 +1,7 @@
 import { Platform } from 'react-native';
 
+
+// https://hiddentao.com/archives/2017/03/10/get-custom-fonts-working-in-react-native/
 // we define available font weight and styles for each font here
 const font = {
     OpenSans: {
@@ -15,7 +17,7 @@ const font = {
       }
     },
   }
-  
+
   // generate styles for a font with given weight and style
   export const fontMaker = (options = {}) => {
     let { weight, style, family } = Object.assign({
@@ -23,22 +25,22 @@ const font = {
       style: null,
       family: 'OpenSans'
     }, options)
-  
+
     const { weights, styles } = font[family]
-  
+
     if (Platform.OS === 'android') {
       weight = weights[weight] ? weight : ''
       style = styles[style] ? style : ''
-  
+
       const suffix = weight + style
-  
+
       return {
         fontFamily: family + (suffix.length ? `-${suffix}` : '')
       }
     } else {
       weight = weights[weight] || weights.Normal
       style = styles[style] || 'normal'
-  
+
       return {
         fontFamily: family,
         fontWeight: weight,
