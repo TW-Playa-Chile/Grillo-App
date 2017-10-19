@@ -5,7 +5,6 @@ import configureStore from 'redux-mock-store';
 import Immutable from 'immutable';
 Enzyme.configure({ adapter: new Adapter() });
 import AddHabit from './../AddHabit';
-import { FormLabel, FormInput, FormValidationMessage, Button, Card } from 'react-native-elements';
 
 
 describe('components', () => {

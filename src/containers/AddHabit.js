@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { FormLabel, FormInput, FormValidationMessage, Button, Card } from 'react-native-elements';
+import Snackbar from 'react-native-snackbar';
 import { connect } from 'react-redux';
 import * as HabitActions from '../actions/habits';
 import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, BORDER_RADIUS, FONT_NORMAL, FONT_BOLD } from './../styles/common';
@@ -16,7 +17,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: COLOR_BACKGROUND,
-      
+
     },
     welcome: {
       fontSize: 20,
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
     },
     buttonAdd: {
       margin: '5%',
-      backgroundColor: COLOR_SECONDARY, 
+      backgroundColor: COLOR_SECONDARY,
       borderRadius: BORDER_RADIUS
     },
     back: {
@@ -63,14 +64,21 @@ export default class AddHabit extends Component {
     if (this.state.habit.length<1) {
         console.log("nothing");
         this.setState({ habitError: true });
+
     } else {
         this.addHabit(this.state.habit);
+        // SnackBar.show('Making the world happier', { isStatic: true })
         this.props.navigation.goBack();
-    }   
+        Snackbar.show({
+          title: 'Se añadió su nuevo hábito',
+          backgroundColor: 'green',
+          duration: Snackbar.LENGTH_SHORT,
+        });
+    }
   };
 
   enterHabit = (txt) => {
-    this.setState({ habit: txt }); 
+    this.setState({ habit: txt });
   };
 
   handleBack = () => {
@@ -89,7 +97,7 @@ export default class AddHabit extends Component {
                 ref={input => this.textInput = input}
                 onChangeText={this.enterHabit}
             />
-            { habitError && 
+            { habitError &&
                 <FormValidationMessage >Debes ingresar un nombre para agregar el habito.</FormValidationMessage>
             }
             <Button
@@ -112,7 +120,7 @@ export default class AddHabit extends Component {
     addHabit: PropTypes.func.isRequired,
     // navigation: PropTypes.object.isRequired,
   };
-  
+
 }
 
 
