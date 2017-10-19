@@ -24,8 +24,9 @@ describe('components', () => {
     });
 
     it('should set an error when habit name is absent', () => {
+      wrapper.enterHabit("");
       wrapper.addHabitToStore();
-      expect( wrapper.state.habitError ).toBe(true);
+      expect( wrapper.state.habitError).toBe(true);
     });
 
     it('should pass if habit has a name', () => {
@@ -33,6 +34,12 @@ describe('components', () => {
       wrapper.addHabitToStore();
       expect( wrapper.state.habitError ).toBe(false);
     });
+
+    it('should set an error if we pass multiple spaces', () => {
+      wrapper.enterHabit("      ");
+      wrapper.addHabitToStore();
+      expect( wrapper.state.habitError ).toBe(true);
+  });
 
 });
 ;

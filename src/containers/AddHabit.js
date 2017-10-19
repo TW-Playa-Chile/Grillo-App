@@ -62,12 +62,12 @@ export default class AddHabit extends Component {
         habit: '',
         habitError: false,
     }
+
     this.addHabit = (name) => addHabit(name);
   }
 
   addHabitToStore = () => {
-    if (this.state.habit.length<1) {
-        console.log("nothing");
+    if (this.isEmptyString(this.state.habit)) {
         this.setState({ habitError: true });
 
     } else {
@@ -79,6 +79,10 @@ export default class AddHabit extends Component {
         //   duration: Snackbar.LENGTH_SHORT,
         // });
     }
+  };
+
+  isEmptyString = function(habitName) {
+    return habitName.trim().length < 1;
   };
 
   enterHabit = (txt) => {
