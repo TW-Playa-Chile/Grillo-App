@@ -17,17 +17,27 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR_PRIMARY,
   },
   container: {
-    flex: 1,
+    flex: 0,
+    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: COLOR_BACKGROUND,
-    
+  },
+  card: {
+    backgroundColor: '#fff',
+    width:'90%',
+    paddingTop: 15,
   },
   welcome: {
+    fontSize: 25,
+    margin: 10,
+    textAlign: 'center',
+    ...FONT_BOLD,
+  },
+  boldText: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
-    // ...FONT_BOLD,
+    ...FONT_BOLD,
   },
   instructions: {
     textAlign: 'center',
@@ -36,9 +46,8 @@ const styles = StyleSheet.create({
   },
   buttonAdd: {
     margin: '5%',
-    width:'40%', 
-    backgroundColor: COLOR_SECONDARY, 
-    borderRadius: BORDER_RADIUS
+    backgroundColor: COLOR_SECONDARY,
+    borderRadius: BORDER_RADIUS,
   }
 });
 
@@ -88,7 +97,7 @@ export default class Home extends Component {
     // console.log("asqdasdadsa: ", currentHabits);
     return (
       <View style={styles.container}>
-        <Card style={{backgroundColor: '#fff', width:'90%'}}>
+        <Card style={styles.card}>
           <Text h1 style={styles.welcome}>Mis Habitos</Text>
           <ScrollView>
             <List>
@@ -110,7 +119,7 @@ export default class Home extends Component {
             icon={{name: 'add'}}
             buttonStyle={styles.buttonAdd}
             title='Agregar'
-            textStyle={{textAlign: 'center'}}
+            textStyle={styles.boldText}
             raised={true}
           />
         </Card>

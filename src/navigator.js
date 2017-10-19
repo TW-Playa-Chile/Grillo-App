@@ -5,6 +5,8 @@ import { Header } from 'react-native-elements';
 import Home from './containers/Home';
 import Counter from './containers/Counter';
 import AddHabit from './containers/AddHabit';
+import { COLOR_PRIMARY, FONT_BOLD } from './styles/common';
+
 
 const AppNavigator = new StackNavigator(
   {
@@ -16,9 +18,9 @@ const AppNavigator = new StackNavigator(
     headerMode: 'screen',
     navigationOptions: {
       header: <Header
-        backgroundColor='#255B86'
+        backgroundColor={COLOR_PRIMARY}
         leftComponent={{ icon: 'menu', color: '#fff' }}
-        centerComponent={{ text: 'Grillo App', style: { color: '#fff' } }} 
+        centerComponent={{ text: 'Grillo App', style: { ...FONT_BOLD, color: '#fff' } }}
         // rightComponent={{ icon: 'home', color: '#fff' }}
       />,
     },

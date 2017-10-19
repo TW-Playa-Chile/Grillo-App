@@ -20,20 +20,25 @@ const styles = StyleSheet.create({
 
     },
     welcome: {
-      fontSize: 20,
+      fontSize: 25,
       textAlign: 'center',
       margin: 10,
-      // ...FONT_BOLD,
+      ...FONT_BOLD,
     },
     instructions: {
+      margin: 5,
       textAlign: 'center',
-      color: '#333333',
-      marginBottom: 5,
+      ...FONT_NORMAL,
+    },
+    boldText: {
+      fontSize: 20,
+      textAlign: 'center',
+      ...FONT_BOLD,
     },
     buttonAdd: {
       margin: '5%',
       backgroundColor: COLOR_SECONDARY,
-      borderRadius: BORDER_RADIUS
+      borderRadius: BORDER_RADIUS,
     },
     back: {
       textAlign: 'center',
@@ -90,8 +95,9 @@ export default class AddHabit extends Component {
     return (
       <View style={styles.container}>
         <Card style={{backgroundColor: '#fff', width:'90%'}}>
-        <Text h1 style={styles.welcome}>NUEVO HÁBITO</Text>
-            <FormLabel>Ingresa tu nuevo habito. No debe sobrepasar los 60 caracteres.</FormLabel>
+          <Text h1 style={styles.welcome}>Nuevo Hábito</Text>
+            <Text style={styles.instructions}>Ingresa tu nuevo hábito</Text>
+            {/* <FormLabel>Titulo hábito</FormLabel> */}
             <FormInput
                 shake={!habitError ? false : true}
                 ref={input => this.textInput = input}
@@ -106,7 +112,7 @@ export default class AddHabit extends Component {
                 icon={{name: 'add'}}
                 buttonStyle={styles.buttonAdd}
                 title='Agregar'
-                textStyle={{textAlign: 'center'}}
+                textStyle={styles.boldText}
                 raised={true}
             />
         </Card>
