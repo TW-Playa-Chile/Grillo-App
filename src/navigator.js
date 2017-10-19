@@ -3,7 +3,6 @@ import React from 'react';
 import { Header } from 'react-native-elements';
 
 import Home from './containers/Home';
-import Counter from './containers/Counter';
 import AddHabit from './containers/AddHabit';
 import { COLOR_PRIMARY, FONT_BOLD } from './styles/common';
 
@@ -11,7 +10,6 @@ import { COLOR_PRIMARY, FONT_BOLD } from './styles/common';
 const AppNavigator = new StackNavigator(
   {
     Home: { screen: Home },
-    Counter: { screen: Counter },
     AddHabit: { screen: AddHabit },
   },
   {

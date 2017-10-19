@@ -8,7 +8,6 @@ import Moment from 'react-moment';
 import 'moment/locale/es';
 import moment from 'moment';
 import * as HabitActions from '../actions/habits';
-
 import { fontMaker } from './../helpers/fontMaker';
 import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, BORDER_RADIUS, FONT_NORMAL, FONT_BOLD } from './../styles/common';
 
@@ -51,8 +50,6 @@ const styles = StyleSheet.create({
   }
 });
 
-
-
 @connect(
   // passing state as props
   state => ({
@@ -77,10 +74,6 @@ export default class Home extends Component {
       />
     )
   }
-
-  toCounter = () => {
-    this.props.navigation.navigate('Counter');
-  };
 
   toAddHabit = () => {
     this.props.navigation.navigate('AddHabit');
@@ -107,7 +100,7 @@ export default class Home extends Component {
                     key={i}
                     title={item.name}
                     leftIcon={{name: 'timer'}}
-                    badge={{value: this.timeBadge(item.lastTimestamp)}}
+                    badge={{value: this.timeBadge(item.startDate)}}
                   />
                 ))
               }
@@ -123,11 +116,6 @@ export default class Home extends Component {
             raised={true}
           />
         </Card>
-        {/*
-        <TouchableOpacity onPress={this.toCounter}>
-          <Text style={styles.instructions}>Navigate to Counter</Text>
-        </TouchableOpacity>
-        */}
       </View>
     );
   }

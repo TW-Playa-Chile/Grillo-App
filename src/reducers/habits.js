@@ -1,12 +1,13 @@
 
 import Immutable from 'immutable';
+import { status } from './../constants/habit';
 
-const initialState = Immutable.Map({ 
+const initialState = Immutable.Map({
     habits: [
-        {name: 'no comeras', startDate: '2017-10-10T12:59-0500'},
-        {name: 'no beberas', startDate: '2017-10-14T12:59-0500'},
-        {name: 'no bailaras', startDate: '2017-10-16T12:59-0500'}
-    ] 
+        {name: 'no comeras', startDate: '2017-10-10T12:59-0500', endDate: null, state: status.REACTIVATED},
+        {name: 'no beberas', startDate: '2017-10-14T12:59-0500', endDate: null, state: status.REACTIVATED},
+        {name: 'no bailaras', startDate: '2017-10-16T12:59-0500', endDate: null, state: status.REACTIVATED}
+    ]
 });
 
 /*

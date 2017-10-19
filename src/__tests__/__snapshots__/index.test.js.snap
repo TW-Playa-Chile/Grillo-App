@@ -94,7 +94,8 @@ exports[`renders correctly 1`] = `
                 Object {
                   "alignItems": "center",
                   "backgroundColor": "#DDDDDD",
-                  "flex": 1,
+                  "flex": 0,
+                  "height": "100%",
                   "justifyContent": "center",
                 }
               }
@@ -103,6 +104,7 @@ exports[`renders correctly 1`] = `
                 style={
                   Object {
                     "backgroundColor": "#fff",
+                    "paddingTop": 15,
                     "width": "90%",
                   }
                 }
@@ -121,12 +123,14 @@ exports[`renders correctly 1`] = `
                   <Text
                     accessible={true}
                     allowFontScaling={true}
-                    disabled={false}
                     ellipsizeMode="tail"
                     h1={true}
                     style={
                       Object {
-                        "fontSize": 20,
+                        "fontFamily": "OpenSans",
+                        "fontSize": 25,
+                        "fontStyle": "normal",
+                        "fontWeight": "800",
                         "margin": 10,
                         "textAlign": "center",
                       }
@@ -216,7 +220,6 @@ exports[`renders correctly 1`] = `
                                   <Text
                                     accessible={true}
                                     allowFontScaling={false}
-                                    disabled={false}
                                     ellipsizeMode="tail"
                                     style={
                                       Array [
@@ -262,7 +265,6 @@ exports[`renders correctly 1`] = `
                                 <Text
                                   accessible={true}
                                   allowFontScaling={true}
-                                  disabled={false}
                                   ellipsizeMode="tail"
                                   numberOfLines={1}
                                   style={
@@ -325,7 +327,6 @@ exports[`renders correctly 1`] = `
                                 <Text
                                   accessible={true}
                                   allowFontScaling={true}
-                                  disabled={false}
                                   ellipsizeMode="tail"
                                   style={
                                     Array [
@@ -337,7 +338,7 @@ exports[`renders correctly 1`] = `
                                     ]
                                   }
                                 >
-                                  unos segundos
+                                  9 días
                                 </Text>
                               </View>
                             </View>
@@ -388,7 +389,6 @@ exports[`renders correctly 1`] = `
                                 <Text
                                   accessible={true}
                                   allowFontScaling={false}
-                                  disabled={false}
                                   ellipsizeMode="tail"
                                   style={
                                     Array [
@@ -483,7 +483,6 @@ exports[`renders correctly 1`] = `
                                   <Text
                                     accessible={true}
                                     allowFontScaling={false}
-                                    disabled={false}
                                     ellipsizeMode="tail"
                                     style={
                                       Array [
@@ -529,7 +528,6 @@ exports[`renders correctly 1`] = `
                                 <Text
                                   accessible={true}
                                   allowFontScaling={true}
-                                  disabled={false}
                                   ellipsizeMode="tail"
                                   numberOfLines={1}
                                   style={
@@ -592,7 +590,6 @@ exports[`renders correctly 1`] = `
                                 <Text
                                   accessible={true}
                                   allowFontScaling={true}
-                                  disabled={false}
                                   ellipsizeMode="tail"
                                   style={
                                     Array [
@@ -604,7 +601,7 @@ exports[`renders correctly 1`] = `
                                     ]
                                   }
                                 >
-                                  unos segundos
+                                  5 días
                                 </Text>
                               </View>
                             </View>
@@ -655,7 +652,6 @@ exports[`renders correctly 1`] = `
                                 <Text
                                   accessible={true}
                                   allowFontScaling={false}
-                                  disabled={false}
                                   ellipsizeMode="tail"
                                   style={
                                     Array [
@@ -750,7 +746,6 @@ exports[`renders correctly 1`] = `
                                   <Text
                                     accessible={true}
                                     allowFontScaling={false}
-                                    disabled={false}
                                     ellipsizeMode="tail"
                                     style={
                                       Array [
@@ -796,7 +791,6 @@ exports[`renders correctly 1`] = `
                                 <Text
                                   accessible={true}
                                   allowFontScaling={true}
-                                  disabled={false}
                                   ellipsizeMode="tail"
                                   numberOfLines={1}
                                   style={
@@ -859,7 +853,6 @@ exports[`renders correctly 1`] = `
                                 <Text
                                   accessible={true}
                                   allowFontScaling={true}
-                                  disabled={false}
                                   ellipsizeMode="tail"
                                   style={
                                     Array [
@@ -871,7 +864,7 @@ exports[`renders correctly 1`] = `
                                     ]
                                   }
                                 >
-                                  unos segundos
+                                  3 días
                                 </Text>
                               </View>
                             </View>
@@ -922,7 +915,6 @@ exports[`renders correctly 1`] = `
                                 <Text
                                   accessible={true}
                                   allowFontScaling={false}
-                                  disabled={false}
                                   ellipsizeMode="tail"
                                   style={
                                     Array [
@@ -1029,7 +1021,6 @@ exports[`renders correctly 1`] = `
                               "backgroundColor": "#83B96B",
                               "borderRadius": 50,
                               "margin": "5%",
-                              "width": "40%",
                             },
                             undefined,
                             undefined,
@@ -1039,7 +1030,6 @@ exports[`renders correctly 1`] = `
                         <Text
                           accessible={true}
                           allowFontScaling={false}
-                          disabled={false}
                           ellipsizeMode="tail"
                           style={
                             Array [
@@ -1066,7 +1056,6 @@ exports[`renders correctly 1`] = `
                         <Text
                           accessible={true}
                           allowFontScaling={true}
-                          disabled={false}
                           ellipsizeMode="tail"
                           style={
                             Array [
@@ -1091,6 +1080,10 @@ exports[`renders correctly 1`] = `
                                 },
                                 undefined,
                                 Object {
+                                  "fontFamily": "OpenSans",
+                                  "fontSize": 20,
+                                  "fontStyle": "normal",
+                                  "fontWeight": "800",
                                   "textAlign": "center",
                                 },
                                 undefined,
@@ -1162,7 +1155,6 @@ exports[`renders correctly 1`] = `
                 <Text
                   accessible={true}
                   allowFontScaling={false}
-                  disabled={false}
                   ellipsizeMode="tail"
                   style={
                     Array [
@@ -1190,7 +1182,6 @@ exports[`renders correctly 1`] = `
               <Text
                 accessible={true}
                 allowFontScaling={true}
-                disabled={false}
                 ellipsizeMode="tail"
                 numberOfLines={1}
                 style={
@@ -1207,6 +1198,9 @@ exports[`renders correctly 1`] = `
                     undefined,
                     Object {
                       "color": "#fff",
+                      "fontFamily": "OpenSans",
+                      "fontStyle": "normal",
+                      "fontWeight": "800",
                     },
                   ]
                 }
