@@ -1,6 +1,7 @@
 
 import Immutable from 'immutable';
 import { status } from './../constants/habit';
+import { insertItem } from './../helpers/arrayMethods';
 
 const initialState = Immutable.Map({
     habits: [
@@ -10,23 +11,6 @@ const initialState = Immutable.Map({
     ]
 });
 
-/*
-* Using Inmutable update patterns:
-* https://github.com/reactjs/redux/blob/master/docs/recipes/reducers/ImmutableUpdatePatterns.md#inserting-and-removing-items-in-arrays
-*/
-
-insertItem = (array, action) => {
-    let newArray = array.slice();
-    newArray.splice(action.name, 0, action.payload);
-    return newArray;
-}
-
-removeItem = (array, action) => {
-    let newArray = array.slice();
-    newArray.splice(action.name, 1);
-    return newArray;
-}
-
 /* Our main reducer */
 
 export default (state = initialState, action) => {
@@ -35,7 +19,7 @@ export default (state = initialState, action) => {
     case 'add_habit':
         const newState = insertItem(prevState, action)
         return state
-            .set('habits', newState);
+          .set('habits', newState);
     default:
       return state
   }

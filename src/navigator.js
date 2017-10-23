@@ -4,6 +4,7 @@ import { Header } from 'react-native-elements';
 
 import Home from './containers/Home';
 import AddHabit from './containers/AddHabit';
+
 import { COLOR_PRIMARY, FONT_BOLD } from './styles/common';
 
 

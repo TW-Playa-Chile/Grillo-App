@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { FormLabel, FormInput, FormValidationMessage, Button, Card } from 'react-native-elements';
 // import Snackbar from 'react-native-snackbar';
-import { connect } from 'react-redux';
 import * as HabitActions from '../actions/habits';
 import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, BORDER_RADIUS, FONT_NORMAL, FONT_BOLD } from './../styles/common';
 
@@ -126,8 +126,8 @@ export default class AddHabit extends Component {
     );
   }
   static propTypes = {
-    addHabit: PropTypes.func.isRequired,
-    // navigation: PropTypes.object.isRequired,
+    // addHabit: PropTypes.func.isRequired,
+    navigation: PropTypes.object.isRequired,
   };
 
 }
