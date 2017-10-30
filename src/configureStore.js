@@ -3,8 +3,9 @@
 import { Platform, AsyncStorage } from 'react-native';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { persistStore, autoRehydrate } from 'redux-persist';
-import reducer from './reducers';
+import { persistStore, persistCombineReducers } from 'redux-persist';
+
+import reducers from './reducers';
 import * as actionCreators from './actions/habits';
 
 let composeEnhancers = compose;
@@ -22,23 +23,18 @@ if (__DEV__) {
 
 const enhancer = composeEnhancers(
   applyMiddleware(thunk),
-  // autoRehydrate()
 );
 
-
 export default function configureStore(initialState) {
-  const store = createStore(reducer, initialState, enhancer);
+  let store = createStore(reducers, initialState, enhancer);
 
   if (module.hot) {
     module.hot.accept(() => {
       store.replaceReducer(require('./reducers').default);
     });
   }
-  persistStore(store, {
-    storage: AsyncStorage,
-    // habits: [habits],
-  }, () => {
-    console.log('restored')
-  })
-  return store;
+
+  let persistor = persistStore(store)
+
+  return store
 }

@@ -3,12 +3,9 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { StyleSheet, Text, View, ListView, TouchableOpacity, ScrollView } from 'react-native';
-import { List, ListItem, Button, Card, Badge } from 'react-native-elements';
-import Moment from 'react-moment';
-import 'moment/locale/es';
-import moment from 'moment';
+import { List, Button, Card } from 'react-native-elements';
+import HabitItem from './../components/HabitItem';
 import * as HabitActions from '../actions/habits';
-import { fontMaker } from './../helpers/fontMaker';
 import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, BORDER_RADIUS, FONT_NORMAL, FONT_BOLD } from './../styles/common';
 
 const styles = StyleSheet.create({
@@ -28,6 +25,7 @@ const styles = StyleSheet.create({
     paddingTop: 15,
   },
   welcome: {
+    color: COLOR_PRIMARY,
     fontSize: 25,
     margin: 10,
     textAlign: 'center',
@@ -51,7 +49,6 @@ const styles = StyleSheet.create({
 });
 
 @connect(
-  // passing state as props
   state => ({
     habits: state.habits,
   }),
@@ -63,47 +60,20 @@ export default class Home extends Component {
     navigation: PropTypes.object.isRequired,
   };
 
-  renderRow = (rowData, sectionID) => {
-    return (
-      <ListItem
-        roundAvatar
-        key={sectionID}
-        title={rowData.name}
-        subtitle={rowData.subtitle}
-        avatar={{uri:rowData.avatar_url}}
-      />
-    )
-  }
-
   toAddHabit = () => {
     this.props.navigation.navigate('AddHabit');
   };
 
-  timeBadge = (timestamp) => {
-    const timeStr = moment(timestamp).fromNow().replace("hace ", "");
-    return timeStr
-  }
-
   render() {
     const {habits} = this.props;
     let currentHabits = habits.get('habits');
-    // console.log("asqdasdadsa: ", currentHabits);
     return (
       <View style={styles.container}>
         <Card style={styles.card}>
-          <Text h1 style={styles.welcome}>Mis Habitos</Text>
+          <Text h1 style={styles.welcome}>MIS HABITOS</Text>
           <ScrollView>
             <List>
-              {
-                currentHabits.map((item, i) => (
-                  <ListItem
-                    key={i}
-                    title={item.name}
-                    leftIcon={{name: 'timer'}}
-                    badge={{value: this.timeBadge(item.startDate)}}
-                  />
-                ))
-              }
+              { currentHabits.map((item, i) => <HabitItem key={i} habit={item} />) }
             </List>
           </ScrollView>
           <Button
