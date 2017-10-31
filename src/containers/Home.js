@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { StyleSheet, Text, View, ListView, TouchableOpacity, ScrollView } from 'react-native';
 import { List, ListItem, Button, Card, Badge } from 'react-native-elements';
-import Moment from 'react-moment';
 import 'moment/locale/es';
 import moment from 'moment';
+import Immutable, {fromJS} from 'immutable';
 import * as HabitActions from '../actions/habits';
 import { fontMaker } from './../helpers/fontMaker';
 import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, BORDER_RADIUS, FONT_NORMAL, FONT_BOLD } from './../styles/common';
@@ -52,9 +52,7 @@ const styles = StyleSheet.create({
 
 @connect(
   // passing state as props
-  state => ({
-    habits: state.habits,
-  }),
+  state => ({ habits: state.habits }),
   dispatch => bindActionCreators(HabitActions, dispatch),
 )
 
@@ -85,9 +83,10 @@ export default class Home extends Component {
   }
 
   render() {
-    const {habits} = this.props;
-    let currentHabits = habits.get('habits');
-    // console.log("asqdasdadsa: ", currentHabits);
+    // immutable pattern
+    let currentHabits = Immutable.Map(this.props.habits).get('habits');
+    if (!currentHabits)
+      return <Text>Cargando...</Text>
     return (
       <View style={styles.container}>
         <Card style={styles.card}>

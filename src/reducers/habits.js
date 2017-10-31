@@ -14,11 +14,11 @@ const initialState = Immutable.Map({
 /* Our main reducer */
 
 export default (state = initialState, action) => {
-  const prevState = state.get('habits');
+  const prevState = Immutable.Map(state).get('habits');
   switch (action.type) {
     case 'add_habit':
         const newState = insertItem(prevState, action)
-        return state
+        return Immutable.Map(state)
           .set('habits', newState);
     default:
       return state

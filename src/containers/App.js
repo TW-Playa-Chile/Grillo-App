@@ -6,11 +6,10 @@ import { connect } from 'react-redux';
 import AppNavigator from '../navigator';
 
 @connect(
-  state => ({
-    nav: state.nav,
-  }),
+  state => ({ nav: state.nav }),
   dispatch => ({ dispatch }),
 )
+
 export default class AppWithNavigationState extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
