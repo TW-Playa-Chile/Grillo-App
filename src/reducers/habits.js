@@ -3,12 +3,8 @@ import Immutable from 'immutable';
 import { status } from './../constants/habit';
 import { insertItem } from './../helpers/arrayMethods';
 
-const initialState = Immutable.Map({
-    habits: [
-        {name: 'no comeras', startDate: '2017-10-10T12:59-0500', endDate: null, state: status.REACTIVATED},
-        {name: 'no beberas', startDate: '2017-10-14T12:59-0500', endDate: null, state: status.REACTIVATED},
-        {name: 'no bailaras', startDate: '2017-10-16T12:59-0500', endDate: null, state: status.REACTIVATED}
-    ]
+export const initialState = Immutable.Map({
+    habits: []
 });
 
 /* Our main reducer */
@@ -16,11 +12,14 @@ const initialState = Immutable.Map({
 export default (state = initialState, action) => {
   const prevState = Immutable.Map(state).get('habits');
   switch (action.type) {
+    case 'clean_habits':
+      return initialState;
     case 'add_habit':
-        const newState = insertItem(prevState, action)
-        return Immutable.Map(state)
-          .set('habits', newState);
+      const newState = insertItem(prevState, action)
+      return Immutable.Map(state)
+        .set('habits', newState);
     default:
       return state
+
   }
 };

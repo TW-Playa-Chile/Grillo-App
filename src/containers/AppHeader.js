@@ -1,32 +1,46 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Header, Button } from 'react-native-elements';
+import { Header, Icon } from 'react-native-elements';
+import * as HabitActions from '../actions/habits';
 import { COLOR_PRIMARY, FONT_BOLD } from './../styles/common';
+
+@connect(
+  null,
+  dispatch => bindActionCreators(HabitActions, dispatch),
+)
 
 export default class AppHeader extends Component {
   constructor(props) {
     super(props);
 
+    const { cleanHabits } = props;
     this.state = {
       counter: 0,
     }
+
+    this.cleanHabits = () => cleanHabits();
   }
 
   cleanHabits = () => {
     console.log("hi");
 
-    this.setState({counter: this.state.counter + 1});
+    this.setState({counter: this.state.counter + 1}, () => {
+      if (this.state.counter > 6) {
+        this.cleanHabits();
+      }
+    });
 
     console.log("@@", this.state.counter);
 
   }
 
   deleteButton() {
-    return <Button
-              icon={{name: "delete"}}
+    return <Icon
+              name = "delete"
               onPress = {this.cleanHabits}
-              buttonStyle={{padding: 0, margin: 0, backgroundColor: 'transparent'}}
-              textStyle={{padding: 0, margin: 0}}
+              color = "#FFFFFF"
             />
   }
 

@@ -3,7 +3,7 @@ import { Text } from 'react-native';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import configureStore from 'redux-mock-store';
-import Immutable from 'immutable';
+import Immutable from 'imm
 Enzyme.configure({ adapter: new Adapter() });
 import NotificationCenter from './../NotificationCenter';
 import * as actions from './../../actions/notifications';
