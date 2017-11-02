@@ -60,6 +60,17 @@ export default class Home extends Component {
     navigation: PropTypes.object.isRequired,
   };
 
+  constructor(props) {
+    super(props);
+    const {stopHabit} = props;
+
+    this.stopHabit = (habit) => stopHabit(habit);
+  }
+
+  toStopHabit = (habit) => {
+    this.stopHabit(habit);
+  }
+
   toAddHabit = () => {
     this.props.navigation.navigate('AddHabit');
   };
@@ -72,7 +83,7 @@ export default class Home extends Component {
           <Text h1 style={styles.welcome}>MIS HABITOS</Text>
           <ScrollView>
             <List>
-              { currentHabits.map((item, i) => <HabitItem key={i} habit={item} />) }
+              { currentHabits.map((item, i) => <HabitItem key={i} habit={item} toStopHabit={this.toStopHabit} />) }
             </List>
           </ScrollView>
           <Button

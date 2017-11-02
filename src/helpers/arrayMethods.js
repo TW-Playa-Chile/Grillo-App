@@ -9,6 +9,21 @@ export function insertItem (array, action) {
   return newArray;
 }
 
+export function updateObjectInArray(array, action) {
+  return array.map( (item, index) => {
+      if(index !== action.index) {
+          // This isn't the item we care about - keep it as-is
+          return item;
+      }
+
+      // Otherwise, this is the one we want - return an updated value
+      return {
+          ...item,
+          ...action.item
+      };
+  });
+}
+
 // export function removeItem (array, action) {
 //   let newArray = array.slice();
 //   newArray.splice(action.name, 1);

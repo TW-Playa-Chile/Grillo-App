@@ -16,26 +16,31 @@ const styles = StyleSheet.create({
 export default class HabitItem extends Component {
   static propTypes = {
     habit: PropTypes.object.isRequired,
+    toStopHabit: PropTypes.func.isRequired,
   };
 
   constructor(props) {
     super(props);
+    const { toStopHabit } = props;
+
     this.state = {
       // time: Date.now(),
     }
+
+    this.toStopHabit = (habit) => toStopHabit(habit);
   }
 
-  stopCounter = () => {
-    console.log("kjsaghdfjhadgsu")
+  stopCounter = (habit) => {
+    this.toStopHabit(habit)
   }
 
-  stopButton = () => {
+  stopButton = (habit) => {
     return <Icon
               name = 'stop-circle-o'
               type = 'font-awesome'
               color = '#000000'
               iconStyle = {{marginRight: 10, marginLeft: 10}}
-              onPress={() => this.stopCounter()}
+              onPress={() => this.stopCounter(habit)}
             />
   }
 
@@ -44,7 +49,7 @@ export default class HabitItem extends Component {
     return (
       <ListItem
         title={habit.name}
-        leftIcon={this.stopButton()}
+        leftIcon={this.stopButton(habit)}
         badge={{element: <Counter startDate={habit.startDate} status={habit.status} />}}
       />
     )

@@ -1,9 +1,9 @@
 import { Habit, status } from './../constants/habit';
+import moment from 'moment';
 
 export function addHabit(name) {
-  // status: active,
   let habit = new Habit(name);
-  console.log(habit);
+  // console.log(habit);
   return {
     type: 'add_habit',
     payload: habit
@@ -11,15 +11,18 @@ export function addHabit(name) {
 }
 
 export function stopHabit(habit) {
-  console.log(habit);
+  let stoppedHabit = habit;
+  stoppedHabit.status = status.INACTIVE;
+  stoppedHabit.endDate = moment().format();
+  // console.log(stoppedHabit);
   return {
     type: 'stop_habit',
-    payload: habit
+    payload: stoppedHabit
   }
 }
 
 export function cleanHabits() {
-  console.log("cleaning habits");
+  // console.log("cleaning habits");
   return {
     type: 'clean_habits'
   }

@@ -24,8 +24,6 @@ export default class AppHeader extends Component {
   }
 
   cleanHabits = () => {
-    console.log("hi");
-
     this.setState({counter: this.state.counter + 1}, () => {
       if (this.state.counter > 6) {
         this.cleanHabits();
@@ -33,7 +31,6 @@ export default class AppHeader extends Component {
     });
 
     console.log("@@", this.state.counter);
-
   }
 
   deleteButton() {
@@ -47,7 +44,6 @@ export default class AppHeader extends Component {
   render() {
     return (
       <Header
-
         backgroundColor={COLOR_PRIMARY}
         leftComponent={{ icon: 'menu', color: '#fff'}}
         centerComponent={{ text: 'Grillo App', style: { ...FONT_BOLD, color: '#fff' } }}

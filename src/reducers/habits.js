@@ -1,7 +1,7 @@
 
 import Immutable from 'immutable';
 import { status } from './../constants/habit';
-import { insertItem } from './../helpers/arrayMethods';
+import { insertItem, updateObjectInArray } from './../helpers/arrayMethods';
 
 export const initialState = Immutable.Map({
     habits: []
@@ -18,6 +18,10 @@ export default (state = initialState, action) => {
       const newState = insertItem(prevState, action)
       return Immutable.Map(state)
         .set('habits', newState);
+    case 'stop_habit':
+      const newStoppedState = updateObjectInArray(prevState, action)
+      return Immutable.Map(state)
+        .set('habits', newStoppedState);
     default:
       return state
 
