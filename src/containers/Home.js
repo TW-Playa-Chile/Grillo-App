@@ -3,18 +3,30 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
-import { StyleSheet, Text, View, ListView, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ListView, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import { List, Button, Card } from 'react-native-elements';
 import HabitItem from './../components/HabitItem';
 import * as HabitActions from '../actions/habits';
 import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, BORDER_RADIUS, FONT_NORMAL, FONT_BOLD } from './../styles/common';
 
+const win = Dimensions.get('window');
+
 const styles = StyleSheet.create({
+  image: {
+    flex: 1,
+    alignSelf: 'stretch',
+    width: '90%',
+    height: win.height,
+  },
   header: {
     backgroundColor: COLOR_PRIMARY,
   },
+  scrollbox: {
+    height: win.height-300,
+  },
   container: {
-    flex: 0,
+    flex: 1,
+    // marginTop:100,
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
@@ -75,16 +87,28 @@ export default class Home extends Component {
     this.props.navigation.navigate('AddHabit');
   };
 
+  habitList = () => {
+    let currentHabits = Immutable.Map(this.props.habits).get('habits');
+    if (currentHabits.length < 1)
+      return <Image
+        style={styles.image}
+        resizeMode={'contain'}   /* <= changed  */
+        source={require('./../images/no_habits.png')}
+      />
+
+    return (<List>
+      { currentHabits.map((item, i) => <HabitItem key={i} habit={item} toStopHabit={this.toStopHabit} />) }
+      </List>)
+  }
+
   render() {
     let currentHabits = Immutable.Map(this.props.habits).get('habits');
     return (
       <View style={styles.container}>
         <Card style={styles.card}>
           <Text h1 style={styles.welcome}>MIS HABITOS</Text>
-          <ScrollView>
-            <List>
-              { currentHabits.map((item, i) => <HabitItem key={i} habit={item} toStopHabit={this.toStopHabit} />) }
-            </List>
+          <ScrollView style={styles.scrollbox}>
+            { this.habitList() }
           </ScrollView>
           <Button
             onPress={this.toAddHabit}
