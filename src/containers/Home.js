@@ -13,10 +13,10 @@ const win = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   image: {
-    flex: 1,
+    flex: 0,
     alignSelf: 'stretch',
-    width: '90%',
-    height: win.height,
+    width: win.width * 0.9,
+    height: win.height * 0.6,
   },
   header: {
     backgroundColor: COLOR_PRIMARY,
@@ -96,31 +96,33 @@ export default class Home extends Component {
         source={require('./../images/no_habits.png')}
       />
 
-    return (<List>
+return (
+  <ScrollView style={styles.scrollbox}>
+    <List>
       { currentHabits.map((item, i) => <HabitItem key={i} habit={item} toStopHabit={this.toStopHabit} />) }
-      </List>)
-  }
+    </List>
+  </ScrollView>
+)
+}
 
-  render() {
-    let currentHabits = Immutable.Map(this.props.habits).get('habits');
-    return (
-      <View style={styles.container}>
-        <Card style={styles.card}>
-          <Text h1 style={styles.welcome}>MIS HABITOS</Text>
-          <ScrollView style={styles.scrollbox}>
-            { this.habitList() }
-          </ScrollView>
-          <Button
-            onPress={this.toAddHabit}
-            raised
-            icon={{name: 'add'}}
-            buttonStyle={styles.buttonAdd}
-            title='Agregar'
-            textStyle={styles.boldText}
-            raised={true}
-          />
-        </Card>
-      </View>
-    );
-  }
+render() {
+let currentHabits = Immutable.Map(this.props.habits).get('habits');
+return (
+  <View style={styles.container}>
+    <Card style={styles.card}>
+      <Text h1 style={styles.welcome}>MIS HABITOS</Text>
+      { this.habitList() }
+      <Button
+        onPress={this.toAddHabit}
+        raised
+        icon={{name: 'add'}}
+        buttonStyle={styles.buttonAdd}
+        title='Agregar'
+        textStyle={styles.boldText}
+        raised={true}
+      />
+    </Card>
+  </View>
+);
+}
 }

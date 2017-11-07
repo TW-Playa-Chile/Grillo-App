@@ -25,9 +25,18 @@ export default class Counter extends Component {
     clearInterval(this.interval);
   }
 
-  timeBadge = (timestamp) => {
-    const timeStr = moment(timestamp).fromNow().replace("hace ", "");
-    return timeStr;
+  timeBadge = (startDate, endDate) => {
+    if (!endDate) {
+      let a = moment(startDate);
+      let b = moment().format();
+      let diff = a.diff(b, 'days')
+      return (diff==0) ? 'menos de un día' : diff+" días"
+    } else {
+      let a = moment(startDate);
+      let b = moment(endDate);
+      let diff = a.diff(b, 'days')
+      return (diff==0) ? 'menos de un día' : diff+" días"
+    }
   }
 
   statusColor = (status) => {
@@ -42,9 +51,9 @@ export default class Counter extends Component {
   }
 
   render() {
-    const { startDate, status } = this.props;
+    const { startDate, endDate, status } = this.props;
     return (
-      <Badge containerStyle={{ backgroundColor: this.statusColor(status)}} value={this.timeBadge(startDate)} />
+      <Badge containerStyle={{ backgroundColor: this.statusColor(status)}} value={this.timeBadge(startDate, endDate)} />
     )
   }
 }

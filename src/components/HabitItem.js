@@ -50,7 +50,7 @@ export default class HabitItem extends Component {
       <ListItem
         title={habit.name}
         leftIcon={this.stopButton(habit)}
-        badge={{element: <Counter startDate={habit.startDate} status={habit.status} />}}
+        badge={{element: <Counter startDate={habit.startDate} endDate={habit.endDate} status={habit.status} />}}
       />
     )
   }
