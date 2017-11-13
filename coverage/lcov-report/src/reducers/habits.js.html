@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/reducers/habits.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/reducers</a> habits.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/15</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span>
+import Immutabl<span class="cstat-no" title="statement not covered" >e from 'immutable';<span class="cstat-no" title="statement not covered" ></span></span>
+import { st<span class="cstat-no" title="statement not covered" >atus } from './../constants/habi</span>t';
+import { insertIte<span class="cstat-no" title="statement not covered" >m, updateObjectInArray } from './../h</span>elpers/ar<span class="fstat-no" title="function not covered" >rayMethods';<span class="cstat-no" title="statement not covered" ></span></span>
+&nbsp;
+export const init<span class="cstat-no" title="statement not covered" >ialState = Immutable.Map({</span>
+    habits: <span class="cstat-no" title="statement not covered" >[]</span>
+});
+&nbsp;
+/* Our main reducer */
+&nbsp;
+<span class="fstat-no" title="function not covered" >ex</span>port default (state<span class="cstat-no" title="statement not covered" > = initialState, action) =&gt; {<span class="cstat-no" title="statement not covered" ></span></span>
+  const prevSt<span class="cstat-no" title="statement not covered" >ate = Immutable.Map(state).get('habits');</span>
+<span class="cstat-no" title="statement not covered" >  switch (action.type) {</span>
+    case 'clean_habits':
+<span class="cstat-no" title="statement not covered" >      return initialS</span>tate;
+    case 'add_habit':
+      const n<span class="cstat-no" title="statement not covered" >ewState = insertItem(prevState, action)</span>
+<span class="cstat-no" title="statement not covered" >      return Immutable.Map(state)</span>
+        .set('habits', newState);
+    case 'stop_habit':
+      const newStopp<span class="cstat-no" title="statement not covered" >edState = updateObjectInArray(prevState, action)</span>
+<span class="cstat-no" title="statement not covered" >      return Immutable.Map(state)</span>
+        .set('habits', newStoppedState);
+    default:
+<span class="cstat-no" title="statement not covered" >      return s</span>tate
+&nbsp;
+  }
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Nov 13 2017 17:31:15 GMT-0300 (-03)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
