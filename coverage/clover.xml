@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1510150390350" clover="3.2.0">
-  <project timestamp="1510150390350" name="All files">
-    <metrics statements="37" coveredstatements="28" conditionals="5" coveredconditionals="2" methods="15" coveredmethods="11" elements="57" coveredelements="41" complexity="0" loc="37" ncloc="37" packages="6" files="7" classes="7">
+<coverage generated="1510600676641" clover="3.2.0">
+  <project timestamp="1510600676641" name="All files">
+    <metrics statements="77" coveredstatements="57" conditionals="26" coveredconditionals="12" methods="27" coveredmethods="19" elements="130" coveredelements="88" complexity="0" loc="77" ncloc="77" packages="7" files="10" classes="10">
       <package name="Grillo-App">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="jest.js" path="/Users/nicolasjustiniano/Workspace/Grillo-App/jest.js">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="3" count="4" type="stmt"/>
+          <line num="3" count="5" type="stmt"/>
         </file>
       </package>
       <package name="Grillo-App.src.actions">
-        <metrics statements="8" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <metrics statements="9" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
         <file name="habits.js" path="/Users/nicolasjustiniano/Workspace/Grillo-App/src/actions/habits.js">
           <metrics statements="7" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
-          <line num="5" count="3" type="stmt"/>
-          <line num="7" count="3" type="stmt"/>
+          <line num="5" count="4" type="stmt"/>
+          <line num="7" count="4" type="stmt"/>
           <line num="14" count="0" type="stmt"/>
           <line num="15" count="0" type="stmt"/>
           <line num="16" count="0" type="stmt"/>
@@ -22,39 +22,64 @@
           <line num="26" count="0" type="stmt"/>
         </file>
         <file name="notifications.js" path="/Users/nicolasjustiniano/Workspace/Grillo-App/src/actions/notifications.js">
-          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-          <line num="2" count="2" type="stmt"/>
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="2" count="4" type="stmt"/>
+          <line num="3" count="4" type="stmt"/>
         </file>
       </package>
       <package name="Grillo-App.src.constants">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <file name="habit.js" path="/Users/nicolasjustiniano/Workspace/Grillo-App/src/constants/habit.js">
           <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
-          <line num="3" count="1" type="stmt"/>
-          <line num="11" count="3" type="stmt"/>
-          <line num="12" count="3" type="stmt"/>
-          <line num="13" count="3" type="stmt"/>
-          <line num="14" count="3" type="stmt"/>
-          <line num="15" count="3" type="stmt"/>
-          <line num="21" count="24" type="stmt"/>
-          <line num="25" count="3" type="stmt"/>
+          <line num="3" count="2" type="stmt"/>
+          <line num="11" count="4" type="stmt"/>
+          <line num="12" count="4" type="stmt"/>
+          <line num="13" count="4" type="stmt"/>
+          <line num="14" count="4" type="stmt"/>
+          <line num="15" count="4" type="stmt"/>
+          <line num="21" count="32" type="stmt"/>
+          <line num="25" count="4" type="stmt"/>
         </file>
       </package>
       <package name="Grillo-App.src.containers">
-        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <metrics statements="28" coveredstatements="21" conditionals="8" coveredconditionals="6" methods="15" coveredmethods="11"/>
+        <file name="AddHabit.js" path="/Users/nicolasjustiniano/Workspace/Grillo-App/src/containers/AddHabit.js">
+          <metrics statements="16" coveredstatements="14" conditionals="6" coveredconditionals="6" methods="9" coveredmethods="7"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="53" count="3" type="stmt"/>
+          <line num="59" count="3" type="stmt"/>
+          <line num="60" count="3" type="stmt"/>
+          <line num="61" count="3" type="stmt"/>
+          <line num="66" count="3" type="stmt"/>
+          <line num="70" count="3" type="cond" truecount="2" falsecount="0"/>
+          <line num="71" count="2" type="stmt"/>
+          <line num="74" count="1" type="stmt"/>
+          <line num="75" count="1" type="stmt"/>
+          <line num="85" count="3" type="stmt"/>
+          <line num="89" count="3" type="stmt"/>
+          <line num="93" count="0" type="stmt"/>
+          <line num="97" count="8" type="stmt"/>
+          <line num="98" count="8" type="stmt"/>
+          <line num="106" count="0" type="stmt"/>
+        </file>
         <file name="NotificationCenter.js" path="/Users/nicolasjustiniano/Workspace/Grillo-App/src/containers/NotificationCenter.js">
-          <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+          <metrics statements="12" coveredstatements="7" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="4"/>
           <line num="10" count="1" type="stmt"/>
-          <line num="13" count="1" type="stmt"/>
-          <line num="18" count="1" type="stmt"/>
-          <line num="19" count="1" type="stmt"/>
-          <line num="25" count="1" type="stmt"/>
-          <line num="26" count="1" type="stmt"/>
-          <line num="29" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="25" count="0" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="30" count="0" type="stmt"/>
+          <line num="34" count="1" type="stmt"/>
+          <line num="35" count="1" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
         </file>
       </package>
       <package name="Grillo-App.src.helpers">
-        <metrics statements="7" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <metrics statements="19" coveredstatements="11" conditionals="15" coveredconditionals="4" methods="4" coveredmethods="2"/>
         <file name="arrayMethods.js" path="/Users/nicolasjustiniano/Workspace/Grillo-App/src/helpers/arrayMethods.js">
           <metrics statements="7" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="1"/>
           <line num="7" count="3" type="stmt"/>
@@ -64,6 +89,21 @@
           <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
           <line num="16" count="0" type="stmt"/>
           <line num="20" count="0" type="stmt"/>
+        </file>
+        <file name="fontMaker.js" path="/Users/nicolasjustiniano/Workspace/Grillo-App/src/helpers/fontMaker.js">
+          <metrics statements="12" coveredstatements="8" conditionals="13" coveredconditionals="4" methods="1" coveredmethods="1"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="22" count="1" type="cond" truecount="0" falsecount="1"/>
+          <line num="23" count="2" type="stmt"/>
+          <line num="29" count="2" type="stmt"/>
+          <line num="31" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="35" count="0" type="stmt"/>
+          <line num="37" count="0" type="stmt"/>
+          <line num="41" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="42" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="44" count="2" type="stmt"/>
         </file>
       </package>
       <package name="Grillo-App.src.reducers">
@@ -76,6 +116,18 @@
           <line num="15" count="3" type="stmt"/>
           <line num="16" count="3" type="stmt"/>
           <line num="18" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="Grillo-App.src.styles">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="common.js" path="/Users/nicolasjustiniano/Workspace/Grillo-App/src/styles/common.js">
+          <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
         </file>
       </package>
     </metrics>

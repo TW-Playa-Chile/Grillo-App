@@ -9,26 +9,27 @@ import NotificationCenter from './../NotificationCenter';
 import * as actions from './../../actions/notifications';
 
 describe('notificationCenter component', () => {
-    const initialState = Immutable.Map({
-        notifications: ["Hola"]
-    });
-    const mockStore = configureStore();
-    let store, wrapper;
+  const initialState = Immutable.Map({
+      notifications: []
+  });
+  const mockStore = configureStore();
+  let store, wrapper;
 
-    beforeEach(() => {
-      store = mockStore(initialState);
-      wrapper = shallow(<NotificationCenter store={store} navigation={{goBack: jest.fn()}} />).dive();
-    });
+  beforeEach(() => {
+    store = mockStore(initialState);
+    wrapper = shallow(<NotificationCenter store={store} navigation={{goBack: jest.fn()}} />);
+  });
 
-    it('should render one msg', () => {
-      console.log(wrapper.find('Text').children().at(0).text())
-
-    //  return store.dispatch(actions.addNotification("Hola")).then(() => {
-
-    //     expect(wrapper.find('Text').children().at(0).text()).toEqual(["Hola"])
-    //   });
-
-
-    });
+  it('should render one msg', () => {
+    // store.dispatch(actions.addNotification("Hola"))
+    // console.log("state msg: ", wrapper.state('msg').text())
+    // console.log(store.dispatch(actions.addNotification("Hola")))
+    // console.log("=======", wrapper.dive().find('Text').children().at(0).text())
+    // store.dispatch(actions.addNotification("Hola"))
+    // expect(wrapper.find('Text').children().at(0).text()).toEqual("Hola")
+    // // return store.dispatch(actions.addNotification("Hola")).then(() => {
+    // //   expect(wrapper.find('Text').children().at(0).text()).toEqual(["Hola"])
+    // // });
+  });
 
 });

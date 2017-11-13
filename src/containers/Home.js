@@ -8,7 +8,9 @@ import { List, Button, Card } from 'react-native-elements';
 import NotificationCenter from './NotificationCenter';
 import HabitItem from './../components/HabitItem';
 import * as HabitActions from '../actions/habits';
+import * as NotificationActions from '../actions/notifications';
 import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, BORDER_RADIUS, FONT_NORMAL, FONT_BOLD } from './../styles/common';
+import { Notification } from 'rx';
 
 
 const win = Dimensions.get('window');
@@ -65,7 +67,7 @@ const styles = StyleSheet.create({
 
 @connect(
   state => ({ habits: state.habits }),
-  dispatch => bindActionCreators(HabitActions, dispatch),
+  dispatch => bindActionCreators(Object.assign({}, HabitActions, NotificationActions), dispatch),
 )
 
 export default class Home extends Component {
@@ -75,13 +77,18 @@ export default class Home extends Component {
 
   constructor(props) {
     super(props);
-    const {stopHabit} = props;
+    const {stopHabit, addNotification} = props;
 
     this.stopHabit = (habit) => stopHabit(habit);
+    this.addNotification = (msg) => addNotification(msg);
   }
 
   toStopHabit = (habit) => {
     this.stopHabit(habit);
+  }
+
+  toAddNotification = (msg) => {
+    this.addNotification(msg);
   }
 
   toAddHabit = () => {
@@ -97,33 +104,38 @@ export default class Home extends Component {
         source={require('./../images/no_habits.png')}
       />
 
-return (
-  <ScrollView style={styles.scrollbox}>
-    <List>
-      { currentHabits.map((item, i) => <HabitItem key={i} habit={item} toStopHabit={this.toStopHabit} />) }
-    </List>
-  </ScrollView>
-)
+  return (
+    <ScrollView style={styles.scrollbox}>
+      <List>
+        { currentHabits.map((item, i) => <HabitItem key={i} habit={item} toStopHabit={this.toStopHabit} />) }
+      </List>
+    </ScrollView>
+  )
 }
-
-render() {
-return (
-  <View style={styles.container}>
-    <Card style={styles.card}>
-      <Text h1 style={styles.welcome}>MIS HABITOS</Text>
-      { this.habitList() }
-      <Button
-        onPress={this.toAddHabit}
-        raised
-        icon={{name: 'add'}}
-        buttonStyle={styles.buttonAdd}
-        title='Agregar'
-        textStyle={styles.boldText}
-        raised={true}
-      />
-    </Card>
-    <NotificationCenter />
-  </View>
-);
-}
+  render() {
+    return (
+      <View style={styles.container}>
+        <Card style={styles.card}>
+          <Text h1 style={styles.welcome}>MIS HABITOS</Text>
+          { this.habitList() }
+          <Button
+            onPress={() => this.toAddHabit()}
+            raised
+            icon={{name: 'add'}}
+            buttonStyle={styles.buttonAdd}
+            title='Agregar'
+            textStyle={styles.boldText}
+          />
+        </Card>
+        {/*<Button
+            onPress={() => this.toAddNotification("Hola ksajdhjkas")}
+            raised
+            icon={{name: 'add'}}
+            // buttonStyle={styles.buttonAdd}
+            title='test'
+          />
+        <NotificationCenter />*/}
+      </View>
+    );
+  }
 }

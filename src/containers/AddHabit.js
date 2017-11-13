@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SnackBar from 'react-native-snackbar';
+// import SnackBar from 'react-native-snackbar';
 import PropTypes from 'prop-types';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { bindActionCreators } from 'redux';
@@ -73,11 +73,11 @@ export default class AddHabit extends Component {
     } else {
         this.addHabit(this.state.habit);
         this.props.navigation.goBack();
-        SnackBar.show({
-          title: 'Se añadió su nuevo hábito',
-          backgroundColor: 'green',
-          // duration: Snackbar.LENGTH_LONG  ,
-        });
+        // SnackBar.show({
+        //   title: 'Se añadió su nuevo hábito',
+        //   backgroundColor: 'green',
+        //   duration: Snackbar.LENGTH_LONG  ,
+        // });
     }
   };
 
