@@ -1,4 +1,4 @@
-# Pepe Grillo App
+# Pepe Grillo App [![Build Status](https://travis-ci.org/TW-Playa-Chile/Grillo-App.svg?branch=master)](https://travis-ci.org/TW-Playa-Chile/Grillo-App)
 > App para gestionar seguimiento de habitos
 
 ## Incluye
