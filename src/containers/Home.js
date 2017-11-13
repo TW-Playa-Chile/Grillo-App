@@ -5,9 +5,11 @@ import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import { StyleSheet, Text, View, ListView, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import { List, Button, Card } from 'react-native-elements';
+import NotificationCenter from './NotificationCenter';
 import HabitItem from './../components/HabitItem';
 import * as HabitActions from '../actions/habits';
 import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, BORDER_RADIUS, FONT_NORMAL, FONT_BOLD } from './../styles/common';
+
 
 const win = Dimensions.get('window');
 
@@ -62,7 +64,6 @@ const styles = StyleSheet.create({
 });
 
 @connect(
-  // passing state as props
   state => ({ habits: state.habits }),
   dispatch => bindActionCreators(HabitActions, dispatch),
 )
@@ -106,7 +107,6 @@ return (
 }
 
 render() {
-let currentHabits = Immutable.Map(this.props.habits).get('habits');
 return (
   <View style={styles.container}>
     <Card style={styles.card}>
@@ -122,6 +122,7 @@ return (
         raised={true}
       />
     </Card>
+    <NotificationCenter />
   </View>
 );
 }
