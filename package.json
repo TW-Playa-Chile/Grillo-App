@@ -69,6 +69,16 @@
     ],
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
-    "collectCoverageFrom" : ["src/**/*.js"]
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 10.92,
+        "branches": 4.2,
+        "functions": 15.97,
+        "lines": 24.89
+      }
+    }
   }
 }
