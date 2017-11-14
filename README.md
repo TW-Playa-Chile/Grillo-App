@@ -28,7 +28,7 @@ $ npm start
 
 #### iOS
 
-Correr este comando para inicializar la app en el simulador de iOS
+Ejecutar este comando para inicializar la app en el simulador de iOS
 
 ```bash
 $ npm run ios
