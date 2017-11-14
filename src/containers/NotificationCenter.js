@@ -15,12 +15,12 @@ export default class NotificationCenter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      msg: 'nada',
+      msg: '',
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    let lastMsg = Immutable.Map(nextProps.notifications).get('notifications').pop();
+    let lastMsg = nextProps.notifications.pop();
     if (lastMsg)
       this.showNotification(lastMsg);
   }

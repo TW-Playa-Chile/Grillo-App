@@ -9,9 +9,9 @@ import NotificationCenter from './../NotificationCenter';
 import * as actions from './../../actions/notifications';
 
 describe('notificationCenter component', () => {
-  const initialState = Immutable.Map({
+  const initialState = {
       notifications: []
-  });
+  };
   const mockStore = configureStore();
   let store, wrapper;
 
@@ -21,15 +21,13 @@ describe('notificationCenter component', () => {
   });
 
   it('should render one msg', () => {
-    // store.dispatch(actions.addNotification("Hola"))
-    // console.log("state msg: ", wrapper.state('msg').text())
-    // console.log(store.dispatch(actions.addNotification("Hola")))
-    // console.log("=======", wrapper.dive().find('Text').children().at(0).text())
-    // store.dispatch(actions.addNotification("Hola"))
-    // expect(wrapper.find('Text').children().at(0).text()).toEqual("Hola")
-    // // return store.dispatch(actions.addNotification("Hola")).then(() => {
-    // //   expect(wrapper.find('Text').children().at(0).text()).toEqual(["Hola"])
-    // // });
+    store.dispatch(actions.addNotification('Hola'));
+    const action = store.getActions();
+    const expectedAction = [{
+      type: "add_notification",
+      payload: "Hola"
+    }];
+    expect(action).toEqual(expectedAction);
   });
 
 });

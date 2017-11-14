@@ -127,14 +127,14 @@ export default class Home extends Component {
             textStyle={styles.boldText}
           />
         </Card>
-        {/*<Button
+        <Button
             onPress={() => this.toAddNotification("Hola ksajdhjkas")}
             raised
             icon={{name: 'add'}}
             // buttonStyle={styles.buttonAdd}
             title='test'
           />
-        <NotificationCenter />*/}
+        <NotificationCenter />
       </View>
     );
   }

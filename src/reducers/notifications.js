@@ -2,9 +2,9 @@
 import Immutable from 'immutable';
 import { insertItem } from './../helpers/arrayMethods';
 
-export const initialState = Immutable.Map({
+export const initialState = {
     notifications: []
-});
+};
 
 /* Our main reducer */
 
@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case 'add_notification':
       const newState = insertItem(prevState, action)
-      return state.set('notifications', newState);
+      return newState;
     default:
       return state
   }
