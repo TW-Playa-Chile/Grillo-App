@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { BackHandler } from 'react-native';
+import { BackHandler, View, Dimensions, StyleSheet } from 'react-native';
 import { NavigationActions, addNavigationHelpers } from 'react-navigation/src/react-navigation';
 import { connect } from 'react-redux';
 import AppNavigator from '../navigator';
+import Notifications from './Notifications';
+
+const win = Dimensions.get('window');
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 0,
+    width: win.width,
+    height: win.height,
+  },
+});
 
 @connect(
   state => ({ nav: state.nav }),
@@ -29,6 +40,11 @@ export default class AppWithNavigationState extends Component {
 
   render() {
     const { dispatch, nav } = this.props;
-    return <AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />;
+    return (
+      <View style={styles.container}>
+        <AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />
+        <Notifications />
+      </View>
+    );
   }
 }

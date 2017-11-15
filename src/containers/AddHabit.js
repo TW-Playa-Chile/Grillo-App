@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-// import SnackBar from 'react-native-snackbar';
 import PropTypes from 'prop-types';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { FormLabel, FormInput, FormValidationMessage, Button, Card } from 'react-native-elements';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { FormLabel, FormInput, FormValidationMessage, Button, Card } from 'react-native-elements';
 import * as HabitActions from '../actions/habits';
+import * as NotificationActions from '../actions/notifications';
 import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, BORDER_RADIUS, FONT_NORMAL, FONT_BOLD } from './../styles/common';
 
 const styles = StyleSheet.create({
-    header: {
-      backgroundColor: COLOR_PRIMARY,
-    },
     container: {
       flex: 1,
       justifyContent: 'center',
@@ -49,39 +46,36 @@ const styles = StyleSheet.create({
 
 @connect(
   null,
-  dispatch => bindActionCreators(HabitActions, dispatch),
+  dispatch => bindActionCreators(Object.assign({}, HabitActions, NotificationActions), dispatch),
 )
 
 
 export default class AddHabit extends Component {
   constructor(props) {
     super(props);
-    const { addHabit } = props;
+
+    const { addHabit, addNotification } = props;
     this.state = {
         habit: '',
         habitError: false,
     }
 
     this.addHabit = (name) => addHabit(name);
+    this.addNotification = (msg) => addNotification(msg);
   }
 
   addHabitToStore = () => {
     if (this.isEmptyString(this.state.habit)) {
         this.setState({ habitError: true });
-
     } else {
         this.addHabit(this.state.habit);
+        this.addNotification("Se añadio su nuevo hábito")
         this.props.navigation.goBack();
-        // SnackBar.show({
-        //   title: 'Se añadió su nuevo hábito',
-        //   backgroundColor: 'green',
-        //   duration: Snackbar.LENGTH_LONG  ,
-        // });
     }
   };
 
-  isEmptyString = function(habitName) {
-    return habitName.trim().length < 1;
+  isEmptyString = function(name) {
+    return name.trim().length < 1;
   };
 
   enterHabit = (txt) => {

@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import configureStore from 'redux-mock-store';
 import Immutable from 'immutable';
 Enzyme.configure({ adapter: new Adapter() });
-import NotificationCenter from './../NotificationCenter';
+import Notifications from './../Notifications';
 import * as actions from './../../actions/notifications';
 
 describe('notificationCenter component', () => {

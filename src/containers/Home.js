@@ -5,13 +5,10 @@ import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import { StyleSheet, Text, View, ListView, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import { List, Button, Card } from 'react-native-elements';
-import NotificationCenter from './NotificationCenter';
 import HabitItem from './../components/HabitItem';
 import * as HabitActions from '../actions/habits';
 import * as NotificationActions from '../actions/notifications';
 import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, BORDER_RADIUS, FONT_NORMAL, FONT_BOLD } from './../styles/common';
-import { Notification } from 'rx';
-
 
 const win = Dimensions.get('window');
 
@@ -22,15 +19,11 @@ const styles = StyleSheet.create({
     width: win.width * 0.9,
     height: win.height * 0.6,
   },
-  header: {
-    backgroundColor: COLOR_PRIMARY,
-  },
   scrollbox: {
     height: win.height-300,
   },
   container: {
     flex: 1,
-    // marginTop:100,
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
@@ -127,14 +120,6 @@ export default class Home extends Component {
             textStyle={styles.boldText}
           />
         </Card>
-        <Button
-            onPress={() => this.toAddNotification("Hola ksajdhjkas")}
-            raised
-            icon={{name: 'add'}}
-            // buttonStyle={styles.buttonAdd}
-            title='test'
-          />
-        <NotificationCenter />
       </View>
     );
   }
