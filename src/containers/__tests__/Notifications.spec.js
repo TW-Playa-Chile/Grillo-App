@@ -3,21 +3,18 @@ import { Text } from 'react-native';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import configureStore from 'redux-mock-store';
-import Immutable from 'immutable';
 Enzyme.configure({ adapter: new Adapter() });
 import Notifications from './../Notifications';
 import * as actions from './../../actions/notifications';
 
-describe('notificationCenter component', () => {
-  const initialState = {
-      notifications: []
-  };
+describe('notifications component', () => {
+  const initialState = [];
   const mockStore = configureStore();
   let store, wrapper;
 
   beforeEach(() => {
     store = mockStore(initialState);
-    wrapper = shallow(<NotificationCenter store={store} navigation={{goBack: jest.fn()}} />);
+    wrapper = shallow(<Notifications store={store} navigation={{goBack: jest.fn()}} />);
   });
 
   it('should render one msg', () => {
