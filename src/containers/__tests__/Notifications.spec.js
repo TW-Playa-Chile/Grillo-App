@@ -14,7 +14,7 @@ describe('notifications component', () => {
 
   beforeEach(() => {
     store = mockStore(initialState);
-    wrapper = shallow(<Notifications store={store} navigation={{goBack: jest.fn()}} />);
+    wrapper = shallow(<Notifications store={store} navigation={{goBack: jest.fn()}} />).dive();
   });
 
   it('should render one msg', () => {
@@ -26,5 +26,10 @@ describe('notifications component', () => {
     }];
     expect(action).toEqual(expectedAction);
   });
+
+  it('should add a notification', () => {
+    wrapper.instance().showNotification("Hola");
+    expect(wrapper.state('msg')).toEqual("Hola");
+  })
 
 });
