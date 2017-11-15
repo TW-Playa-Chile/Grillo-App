@@ -18,6 +18,16 @@ $ npm install -g react-native-cli
 $ npm install
 ```
 
+### Instalación Android
+
+Debes descargar la plataforma [android studio](https://developer.android.com/studio/index.html), y luego instalarla en tu computadora. Luego de instalarla, debes correr el siguiente comando (Mac OS)
+
+```bash
+$ cd Grillo-App
+$ export SDK_PATH=$HOME/Library/Android/sdk/tools/bin
+$ cat android/sdk-dependencies.txt | while read f; do $SDK_PATH/sdkmanager $f; done
+```
+
 ## Desarrollo
 
 #### Comenzar servidor local
@@ -36,12 +46,20 @@ $ npm run ios
 
 #### Android (5.0+)
 
-Abrir el emulador de Android (recomendamos [Genymotion](https://www.genymotion.com)) y correr el comando:
+Correndo el código en un aparato conectado por usb
 
 ```bash
 $ npm run android
 ```
-(O conectar un aparato real por USB)
+
+Correndo el código en un emulador
+
+```bash
+# crea el emulador
+$ $SDK_PATH/avdmanager create avd -n test -k "system-images;android-25;google_apis;x86"
+# correndo el emulador
+$ $SDK_PATH/emulator @test
+```
  
 
 ## DevTools
@@ -71,4 +89,3 @@ watchman watch-del-all && rm -rf node_modules/ && yarn cache clean && yarn insta
 ```bash
 $ npm test
 ```
-
