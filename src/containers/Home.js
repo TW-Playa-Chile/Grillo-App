@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Immutable from 'immutable';
 import { StyleSheet, Text, View, ListView, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import { List, Button, Card } from 'react-native-elements';
 import HabitItem from './../components/HabitItem';
@@ -70,6 +69,7 @@ const styles = StyleSheet.create({
 export default class Home extends Component {
   static propTypes = {
     navigation: PropTypes.object.isRequired,
+    habits: PropTypes.arrayOf(PropTypes.object).isRequired,
   };
 
   constructor(props) {
@@ -88,41 +88,39 @@ export default class Home extends Component {
   };
 
   habitList = () => {
-    let currentHabits = Immutable.Map(this.props.habits).get('habits');
-    if (currentHabits.length < 1)
+    if (this.props.habits.length < 1)
       return <Image
         style={styles.image}
         resizeMode={'contain'}   /* <= changed  */
         source={require('./../images/no_habits.png')}
       />
 
-return (
-  <ScrollView style={styles.scrollbox}>
-    <List>
-      { currentHabits.map((item, i) => <HabitItem key={i} habit={item} toStopHabit={this.toStopHabit} />) }
-    </List>
-  </ScrollView>
-)
-}
+    return (
+      <ScrollView style={styles.scrollbox}>
+        <List>
+          { this.props.habits.map((item, i) => <HabitItem key={i} habit={item} toStopHabit={this.toStopHabit} />) }
+        </List>
+      </ScrollView>
+    )
+  }
 
-render() {
-let currentHabits = Immutable.Map(this.props.habits).get('habits');
-return (
-  <View style={styles.container}>
-    <Card style={styles.card}>
-      <Text h1 style={styles.welcome}>MIS HABITOS</Text>
-      { this.habitList() }
-      <Button
-        onPress={this.toAddHabit}
-        raised
-        icon={{name: 'add'}}
-        buttonStyle={styles.buttonAdd}
-        title='Agregar'
-        textStyle={styles.boldText}
-        raised={true}
-      />
-    </Card>
-  </View>
-);
-}
+  render() {
+    return (
+      <View style={styles.container}>
+        <Card style={styles.card}>
+          <Text h1 style={styles.welcome}>MIS HABITOS</Text>
+          { this.habitList() }
+          <Button
+            onPress={this.toAddHabit}
+            raised
+            icon={{name: 'add'}}
+            buttonStyle={styles.buttonAdd}
+            title='Agregar'
+            textStyle={styles.boldText}
+            raised={true}
+          />
+        </Card>
+      </View>
+    );
+  }
 }
