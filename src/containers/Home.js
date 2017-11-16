@@ -10,6 +10,8 @@ import * as HabitActions from '../actions/habits';
 import * as NotificationActions from '../actions/notifications';
 import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, BORDER_RADIUS, FONT_NORMAL, FONT_BOLD } from './../styles/common';
 
+const NO_HABITS_IMAGE = require('./../images/no_habits.png');
+
 const win = Dimensions.get('window');
 
 const styles = StyleSheet.create({
@@ -97,7 +99,7 @@ export default class Home extends Component {
       return <Image
               style={styles.image}
               resizeMode={'contain'}   /* <= changed  */
-              source={require('./../images/no_habits.png')}
+              source={NO_HABITS_IMAGE}
             />
     return (
       <ScrollView style={styles.scrollbox}>

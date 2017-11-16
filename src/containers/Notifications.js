@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import * as NotificationActions from './../actions/notifications';
 import { COLOR_SECONDARY, FONT_NORMAL } from './../styles/common';
 
+const DELAY_TIME = 3000;
+
 const win = Dimensions.get('window');
 
 const styles = StyleSheet.create({
@@ -72,7 +74,7 @@ export default class Notifications extends Component {
         msg: '',
         color: ''
       });
-    }, 3000);
+    }, DELAY_TIME);
   }
 
   render() {
