@@ -4,7 +4,7 @@
 
 # Xcode
 #
-build/
+ios/build/
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -24,9 +24,9 @@ project.xcworkspace
 
 # Android/IntelliJ
 #
-build/
-.idea
-.gradle
+android/app/build/
+android/.idea
+android/.gradle
 local.properties
 *.iml
 
@@ -39,6 +39,8 @@ yarn-error.log
 # BUCK
 buck-out/
 \.buckd/
+android/app/libs
+android/keystores/debug.keystore.properties
 *.keystore
 
 # fastlane

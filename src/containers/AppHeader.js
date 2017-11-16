@@ -29,8 +29,6 @@ export default class AppHeader extends Component {
         this.cleanHabits();
       }
     });
-
-    console.log("@@", this.state.counter);
   }
 
   deleteButton() {
@@ -45,8 +43,8 @@ export default class AppHeader extends Component {
     return (
       <Header
         backgroundColor={COLOR_PRIMARY}
-        leftComponent={{ icon: 'menu', color: '#fff'}}
-        centerComponent={{ text: 'Grillo App', style: { ...FONT_BOLD, color: '#fff' } }}
+        // leftComponent={{ icon: 'menu', color: '#fff'}}
+        centerComponent={{ text: 'Pepe Grillo', style: { ...FONT_BOLD, color: '#fff' } }}
         rightComponent={this.deleteButton()}
       />
     )
