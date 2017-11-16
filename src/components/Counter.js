@@ -29,13 +29,13 @@ export default class Counter extends Component {
     if (!endDate) {
       let a = moment(startDate);
       let b = moment().format();
-      let diff = a.diff(b, 'days')
-      return (diff==0) ? 'menos de un día' : diff+" días"
+      let diff = Math.abs(a.diff(b, 'days'))
+      return (diff==0) ? diff+" días" : diff+" días"
     } else {
       let a = moment(startDate);
       let b = moment(endDate);
-      let diff = a.diff(b, 'days')
-      return (diff==0) ? 'menos de un día' : diff+" días"
+      let diff = Math.abs(a.diff(b, 'days'))
+      return (diff==0) ? diff+" días" : diff+" días"
     }
   }
 
