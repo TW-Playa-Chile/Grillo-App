@@ -43,7 +43,6 @@ export default class AppHeader extends Component {
     return (
       <Header
         backgroundColor={COLOR_PRIMARY}
-        // leftComponent={{ icon: 'menu', color: '#fff'}}
         centerComponent={{ text: 'Pepe Grillo', style: { ...FONT_BOLD, color: '#fff' } }}
         rightComponent={this.deleteButton()}
       />
