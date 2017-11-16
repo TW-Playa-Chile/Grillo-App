@@ -18,18 +18,23 @@ describe('notifications component', () => {
   });
 
   it('should render one msg', () => {
-    store.dispatch(actions.addNotification('Hola'));
+    store.dispatch(actions.addNotification("Hola", "green"));
     const action = store.getActions();
     const expectedAction = [{
       type: "add_notification",
-      payload: "Hola"
+      payload: { msg: "Hola", color: "green" }
     }];
     expect(action).toEqual(expectedAction);
   });
 
-  it('should add a notification', () => {
-    wrapper.instance().showNotification("Hola");
+  it('should add a notification msg', () => {
+    wrapper.instance().showNotification({msg: "Hola", color: "green"});
     expect(wrapper.state('msg')).toEqual("Hola");
+  })
+
+  it('should add a green notification', () => {
+    wrapper.instance().showNotification({msg: "Hola", color: "green"});
+    expect(wrapper.state('color')).toEqual("green");
   })
 
 });

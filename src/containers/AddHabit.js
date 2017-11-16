@@ -9,46 +9,44 @@ import * as NotificationActions from '../actions/notifications';
 import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, BORDER_RADIUS, FONT_NORMAL, FONT_BOLD } from './../styles/common';
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: COLOR_BACKGROUND,
-    },
-    welcome: {
-      fontSize: 25,
-      textAlign: 'center',
-      margin: 10,
-      ...FONT_BOLD,
-    },
-    instructions: {
-      margin: 5,
-      textAlign: 'center',
-      ...FONT_NORMAL,
-    },
-    boldText: {
-      fontSize: 20,
-      textAlign: 'center',
-      ...FONT_BOLD,
-    },
-    buttonAdd: {
-      margin: '5%',
-      backgroundColor: COLOR_SECONDARY,
-      borderRadius: BORDER_RADIUS,
-    },
-    back: {
-      textAlign: 'center',
-      color: '#333333',
-      marginTop: 15,
-    },
-  });
-
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: COLOR_BACKGROUND,
+  },
+  welcome: {
+    fontSize: 25,
+    textAlign: 'center',
+    margin: 10,
+    ...FONT_BOLD,
+  },
+  instructions: {
+    margin: 5,
+    textAlign: 'center',
+    ...FONT_NORMAL,
+  },
+  boldText: {
+    fontSize: 20,
+    textAlign: 'center',
+    ...FONT_BOLD,
+  },
+  buttonAdd: {
+    margin: '5%',
+    backgroundColor: COLOR_SECONDARY,
+    borderRadius: BORDER_RADIUS,
+  },
+  back: {
+    textAlign: 'center',
+    color: '#333333',
+    marginTop: 15,
+  },
+});
 
 @connect(
   null,
   dispatch => bindActionCreators(Object.assign({}, HabitActions, NotificationActions), dispatch),
 )
-
 
 export default class AddHabit extends Component {
   constructor(props) {
@@ -61,7 +59,7 @@ export default class AddHabit extends Component {
     }
 
     this.addHabit = (name) => addHabit(name);
-    this.addNotification = (msg) => addNotification(msg);
+    this.addNotification = (msg, color) => addNotification(msg, color);
   }
 
   addHabitToStore = () => {
@@ -69,7 +67,7 @@ export default class AddHabit extends Component {
         this.setState({ habitError: true });
     } else {
         this.addHabit(this.state.habit);
-        this.addNotification("Se añadio su nuevo hábito")
+        this.addNotification("Se añadio su nuevo hábito", "green");
         this.props.navigation.goBack();
     }
   };

@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     flex: 0,
     width: win.width,
     height: win.height,
-  },
+  }
 });
 
 @connect(

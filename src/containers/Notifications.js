@@ -16,11 +16,19 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
   },
-  notification: {
+  notificationGreen: {
     width: win.width,
     height: 40,
     justifyContent: 'center',
     backgroundColor: COLOR_SECONDARY,
+    position: 'absolute',
+    bottom: 0,
+  },
+  notificationRed: {
+    width: win.width,
+    height: 40,
+    justifyContent: 'center',
+    backgroundColor: 'red',
     position: 'absolute',
     bottom: 0,
   },
@@ -37,11 +45,12 @@ const styles = StyleSheet.create({
   dispatch => bindActionCreators(NotificationActions, dispatch),
 )
 
-export default class NotificationCenter extends Component {
+export default class Notifications extends Component {
   constructor(props) {
     super(props);
     this.state = {
       msg: '',
+      color: ''
     }
   }
 
@@ -52,23 +61,29 @@ export default class NotificationCenter extends Component {
       this.showNotification(lastMsg);
   }
 
-  showNotification(msg) {
-    this.setState({ msg });
+  showNotification(notification) {
+    this.setState({
+      msg: notification.msg,
+      color: notification.color
+    });
     // show message for 3 seconds
     setTimeout(() => {
-      this.setState({ msg: '' });
+      this.setState({
+        msg: '',
+        color: ''
+      });
     }, 3000);
   }
 
   render() {
-    const { msg } = this.state;
+    const { msg, color } = this.state;
     const { notifications } = this.props;
 
     return (
-      <View style={styles.notificationBox}>
+      <View style={ styles.notificationBox }>
         { msg.length>0 &&
-          <View style={styles.notification}>
-            <Text style={styles.notificationMessage}>{msg}</Text>
+          <View style={ (color == "green") ? styles.notificationGreen : styles.notificationRed }>
+            <Text style={ styles.notificationMessage }>{ msg }</Text>
           </View>
         }
       </View>

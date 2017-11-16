@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
 import { StyleSheet, Text, View, ListView, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
-import { List, Button, Card } from 'react-native-elements';
+import { List, Button, Card, Icon } from 'react-native-elements';
 import HabitItem from './../components/HabitItem';
 import * as HabitActions from '../actions/habits';
 import * as NotificationActions from '../actions/notifications';
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    height: '100%',
+    height: win.height,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: COLOR_BACKGROUND,
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     width:'90%',
     paddingTop: 15,
+    paddingBottom: 50,
   },
   welcome: {
     color: COLOR_PRIMARY,
@@ -52,9 +53,11 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   buttonAdd: {
-    margin: '5%',
-    backgroundColor: COLOR_SECONDARY,
-    borderRadius: BORDER_RADIUS,
+    position: 'absolute',
+    bottom: -60,
+    right: 0,
+    color: COLOR_SECONDARY,
+    margin: 20
   }
 });
 
@@ -80,8 +83,8 @@ export default class Home extends Component {
     this.stopHabit(habit);
   }
 
-  toAddNotification = (msg) => {
-    this.addNotification(msg);
+  toAddNotification = (msg, color) => {
+    this.addNotification(msg, color);
   }
 
   toAddHabit = () => {
@@ -92,32 +95,36 @@ export default class Home extends Component {
     let currentHabits = Immutable.Map(this.props.habits).get('habits');
     if (currentHabits.length < 1)
       return <Image
-        style={styles.image}
-        resizeMode={'contain'}   /* <= changed  */
-        source={require('./../images/no_habits.png')}
-      />
+              style={styles.image}
+              resizeMode={'contain'}   /* <= changed  */
+              source={require('./../images/no_habits.png')}
+            />
+    return (
+      <ScrollView style={styles.scrollbox}>
+        <List>
+          { currentHabits.map((item, i) => <HabitItem
+                                              key={i}
+                                              habit={item}
+                                              toStopHabit={this.toStopHabit}
+                                              toAddNotification={this.toAddNotification} />) }
+        </List>
+      </ScrollView>
+    )
+  }
 
-  return (
-    <ScrollView style={styles.scrollbox}>
-      <List>
-        { currentHabits.map((item, i) => <HabitItem key={i} habit={item} toStopHabit={this.toStopHabit} />) }
-      </List>
-    </ScrollView>
-  )
-}
   render() {
     return (
       <View style={styles.container}>
         <Card style={styles.card}>
           <Text h1 style={styles.welcome}>MIS HABITOS</Text>
           { this.habitList() }
-          <Button
-            onPress={() => this.toAddHabit()}
-            raised
-            icon={{name: 'add'}}
-            buttonStyle={styles.buttonAdd}
-            title='Agregar'
-            textStyle={styles.boldText}
+          <Icon
+            name = 'add-circle'
+            type = 'material-icons'
+            color = '#000000'
+            size = { 70 }
+            iconStyle = {styles.buttonAdd}
+            onPress = { () => this.toAddHabit() }
           />
         </Card>
       </View>
