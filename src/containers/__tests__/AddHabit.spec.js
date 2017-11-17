@@ -7,7 +7,6 @@ import AddHabit from './../AddHabit';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-
 describe('components', () => {
   const initialState = Immutable.Map({
     habits: [

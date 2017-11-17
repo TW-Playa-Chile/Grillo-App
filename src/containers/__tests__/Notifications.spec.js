@@ -37,7 +37,7 @@ describe('notifications component', () => {
     expect(wrapper.state('color')).toEqual("green");
   })
 
-  it('should add a green notification', () => {
+  it('should add a red notification', () => {
     wrapper.instance().showNotification({msg: "Hola", color: "red"});
     expect(wrapper.state('color')).toEqual("red");
   })
