@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Badge, Text } from 'react-native-elements';
-import 'moment/locale/es';
 import moment from 'moment';
-import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, FONT_NORMAL, FONT_BOLD } from './../styles/common';
+import { COLOR_SECONDARY } from './../styles/common';
 
 export default class Counter extends Component {
   static propTypes = {
@@ -12,9 +11,9 @@ export default class Counter extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      time: Date.now(),
-    }
+    this.state = { time: Date.now() }
+    this.timeBadge = this.timeBadge.bind(this)
+    this.statusColor = this.statusColor.bind(this)
   }
 
   componentDidMount() {
@@ -25,28 +24,19 @@ export default class Counter extends Component {
     clearInterval(this.interval);
   }
 
-  timeBadge = (startDate, endDate) => {
-    if (!endDate) {
-      let a = moment(startDate);
-      let b = moment().format();
-      let diff = a.diff(b, 'days')
-      return (diff==0) ? 'menos de un día' : diff+" días"
-    } else {
-      let a = moment(startDate);
-      let b = moment(endDate);
-      let diff = a.diff(b, 'days')
-      return (diff==0) ? 'menos de un día' : diff+" días"
-    }
+  timeBadge(startDate, endDate) {
+    const start = moment(startDate)
+    const end = endDate ? moment(endDate) : moment().format();
+    const diff = Math.abs(start.diff(end, 'days'))
+    return `${diff} días`
   }
 
-  statusColor = (status) => {
+  statusColor(status) {
     switch (status) {
       case 'active':
         return COLOR_SECONDARY;
       case 'inactive':
         return 'red';
-      case 'reactivated':
-        return 'orange';
     }
   }
 

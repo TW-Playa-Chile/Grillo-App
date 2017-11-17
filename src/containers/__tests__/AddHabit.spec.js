@@ -6,7 +6,6 @@ import AddHabit from './../AddHabit';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-
 describe('components', () => {
   const mockStore = configureStore();
   let store;
