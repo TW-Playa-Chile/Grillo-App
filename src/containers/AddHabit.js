@@ -16,9 +16,11 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR_BACKGROUND,
   },
   welcome: {
+    color: COLOR_PRIMARY,
     fontSize: 25,
-    textAlign: 'center',
     margin: 10,
+    letterSpacing: -1,
+    textAlign: 'center',
     ...FONT_BOLD,
   },
   instructions: {
@@ -89,7 +91,7 @@ export default class AddHabit extends Component {
     return (
       <View style={styles.container}>
         <Card style={{backgroundColor: '#fff', width:'90%'}}>
-          <Text h1 style={styles.welcome}>Nuevo Hábito</Text>
+          <Text h1 style={styles.welcome}>NUEVO HÁBITO</Text>
             <Text style={styles.instructions}>Ingresa tu nuevo hábito</Text>
             {/* <FormLabel>Titulo hábito</FormLabel> */}
             <FormInput

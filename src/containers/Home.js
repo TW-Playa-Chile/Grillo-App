@@ -15,31 +15,31 @@ const win = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   image: {
-    flex: 0,
-    alignSelf: 'stretch',
     width: win.width * 0.9,
-    height: win.height * 0.6,
+    height: win.height * 0.62,
+    zIndex: -1,
   },
   scrollbox: {
-    height: win.height-300,
+    height: win.height * 0.62,
   },
-  container: {
-    flex: 1,
+  innerContainer: {
     height: win.height,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: COLOR_BACKGROUND,
   },
   card: {
+    position: 'relative',
     backgroundColor: '#fff',
-    width:'90%',
-    paddingTop: 15,
-    paddingBottom: 50,
+    marginTop: 20,
+    width: win.width * 0.9,
+    height: win.height * 0.9,
   },
   welcome: {
     color: COLOR_PRIMARY,
     fontSize: 25,
-    margin: 10,
+    marginTop: 50,
+    letterSpacing: -1,
     textAlign: 'center',
     ...FONT_BOLD,
   },
@@ -54,11 +54,8 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   buttonAdd: {
-    position: 'absolute',
-    bottom: -60,
-    right: 0,
     color: COLOR_SECONDARY,
-    margin: 20
+    marginLeft: ((win.width) / 2 ) + 50
   }
 });
 
@@ -103,7 +100,7 @@ export default class Home extends Component {
     return (
       <ScrollView style={styles.scrollbox}>
         <List>
-          { currentHabits.map((item, i) => <HabitItem
+          { this.props.habits.map((item, i) => <HabitItem
                                               key={i}
                                               habit={item}
                                               toStopHabit={this.toStopHabit}
@@ -115,20 +112,20 @@ export default class Home extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Card style={styles.card}>
-          <Text h1 style={styles.welcome}>MIS HABITOS</Text>
-          { this.habitList() }
-          <Icon
-            name = 'add-circle'
-            type = 'material-icons'
-            color = '#000000'
-            size = { 70 }
-            iconStyle = {styles.buttonAdd}
-            onPress = { () => this.toAddHabit() }
-          />
-        </Card>
-      </View>
+        <View style={styles.innerContainer}>
+          <Card style={styles.card}>
+            <Text h1 style={styles.welcome}>MIS HÁBITOS</Text>
+            { this.habitList() }
+            <Icon
+              name = 'add-circle'
+              type = 'material-icons'
+              color = '#000000'
+              size = { 70 }
+              iconStyle = {styles.buttonAdd}
+              onPress = { () => this.toAddHabit() }
+            />
+          </Card>
+        </View>
     );
   }
 }
