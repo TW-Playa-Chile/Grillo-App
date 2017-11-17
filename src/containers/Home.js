@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Immutable from 'immutable';
 import { StyleSheet, Text, View, ListView, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import { List, Button, Card, Icon } from 'react-native-elements';
 import HabitItem from './../components/HabitItem';
@@ -71,6 +70,7 @@ const styles = StyleSheet.create({
 export default class Home extends Component {
   static propTypes = {
     navigation: PropTypes.object.isRequired,
+    habits: PropTypes.arrayOf(PropTypes.object).isRequired,
   };
 
   constructor(props) {
@@ -94,8 +94,7 @@ export default class Home extends Component {
   };
 
   habitList = () => {
-    let currentHabits = Immutable.Map(this.props.habits).get('habits');
-    if (currentHabits.length < 1)
+    if (this.props.habits.length < 1)
       return <Image
               style={styles.image}
               resizeMode={'contain'}   /* <= changed  */
