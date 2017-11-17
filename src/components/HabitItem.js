@@ -17,6 +17,7 @@ export default class HabitItem extends Component {
   static propTypes = {
     habit: PropTypes.object.isRequired,
     toStopHabit: PropTypes.func.isRequired,
+    toAddNotification: PropTypes.func.isRequired
   };
 
   constructor(props) {
