@@ -1,87 +1,81 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { FormLabel, FormInput, FormValidationMessage, Button, Card } from 'react-native-elements';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { FormLabel, FormInput, FormValidationMessage, Button, Card } from 'react-native-elements';
-// import Snackbar from 'react-native-snackbar';
 import * as HabitActions from '../actions/habits';
+import * as NotificationActions from '../actions/notifications';
 import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, BORDER_RADIUS, FONT_NORMAL, FONT_BOLD } from './../styles/common';
 
 const styles = StyleSheet.create({
-    header: {
-      backgroundColor: COLOR_PRIMARY,
-    },
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: COLOR_BACKGROUND,
-    },
-    welcome: {
-      fontSize: 25,
-      textAlign: 'center',
-      margin: 10,
-      ...FONT_BOLD,
-    },
-    instructions: {
-      margin: 5,
-      textAlign: 'center',
-      ...FONT_NORMAL,
-    },
-    boldText: {
-      fontSize: 20,
-      textAlign: 'center',
-      ...FONT_BOLD,
-    },
-    buttonAdd: {
-      margin: '5%',
-      backgroundColor: COLOR_SECONDARY,
-      borderRadius: BORDER_RADIUS,
-    },
-    back: {
-      textAlign: 'center',
-      color: '#333333',
-      marginTop: 15,
-    },
-  });
-
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: COLOR_BACKGROUND,
+  },
+  welcome: {
+    color: COLOR_PRIMARY,
+    fontSize: 25,
+    margin: 10,
+    letterSpacing: -1,
+    textAlign: 'center',
+    ...FONT_BOLD,
+  },
+  instructions: {
+    margin: 5,
+    textAlign: 'center',
+    ...FONT_NORMAL,
+  },
+  boldText: {
+    fontSize: 20,
+    textAlign: 'center',
+    ...FONT_BOLD,
+  },
+  buttonAdd: {
+    margin: '5%',
+    backgroundColor: COLOR_SECONDARY,
+    borderRadius: BORDER_RADIUS,
+  },
+  back: {
+    textAlign: 'center',
+    color: '#333333',
+    marginTop: 15,
+  },
+});
 
 @connect(
   null,
-  dispatch => bindActionCreators(HabitActions, dispatch),
+  dispatch => bindActionCreators(Object.assign({}, HabitActions, NotificationActions), dispatch),
 )
-
 
 export default class AddHabit extends Component {
   constructor(props) {
     super(props);
-    const { addHabit } = props;
+
+    const { addHabit, addNotification } = props;
     this.state = {
         habit: '',
         habitError: false,
     }
 
     this.addHabit = (name) => addHabit(name);
+    this.addNotification = (msg, color) => addNotification(msg, color);
   }
 
   addHabitToStore = () => {
     if (this.isEmptyString(this.state.habit)) {
         this.setState({ habitError: true });
-
     } else {
         this.addHabit(this.state.habit);
+        this.addNotification("Se añadio su nuevo hábito", "green");
         this.props.navigation.goBack();
-        // Snackbar.show({
-        //   title: 'Se añadió su nuevo hábito',
-        //   backgroundColor: 'green',
-        //   duration: Snackbar.LENGTH_SHORT,
-        // });
     }
   };
 
-  isEmptyString = function(habitName) {
-    return habitName.trim().length < 1;
+  isEmptyString = function(name) {
+    return name.trim().length < 1;
   };
 
   enterHabit = (txt) => {
@@ -97,7 +91,7 @@ export default class AddHabit extends Component {
     return (
       <View style={styles.container}>
         <Card style={{backgroundColor: '#fff', width:'90%'}}>
-          <Text h1 style={styles.welcome}>Nuevo Hábito</Text>
+          <Text h1 style={styles.welcome}>NUEVO HÁBITO</Text>
             <Text style={styles.instructions}>Ingresa tu nuevo hábito</Text>
             {/* <FormLabel>Titulo hábito</FormLabel> */}
             <FormInput

@@ -1,7 +1,7 @@
 import { StackNavigator } from 'react-navigation';
 import React from 'react';
-import AppHeader  from './containers/AppHeader';
-import Home from './containers/Home';
+import AppHeader from './containers/AppHeader';
+import Home from './components/Home';
 import AddHabit from './containers/AddHabit';
 
 const AppNavigator = new StackNavigator(
