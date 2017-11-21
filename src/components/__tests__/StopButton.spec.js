@@ -5,97 +5,69 @@ import StopButton from './../StopButton';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('Render a StopButton', () => {
-  let iconStyle;
+describe('StopButton', () => {
+  it('should render component', () => {
+    const stopButton = shallow(<StopButton enableIcon />);
 
-  beforeEach(() => {
-    iconStyle = {
-      enabled: {
-        name: 'enabledName',
-        type: 'enabledType',
-        color: 'enabledColor',
-        style: { width: 0 }
-      },
-      disabled: {
-        name: 'disabledName',
-        type: 'disabledType',
-        color: 'disabledColor',
-        style: { width: 1 }
-      }
-    };
+    expect(stopButton).toBeDefined();
   });
 
-  it('Should render a Icon', () => {
-    const stopButton = shallow(<StopButton enableIcon iconStyle={iconStyle} />);
-    const icon = stopButton.find('Icon');
-
-    expect(icon.length).toBe(1);
-  });
-
-  it('Should render disabled Icon when enableIcon property is false', () => {
-    const stopButton = shallow(<StopButton enableIcon={false} iconStyle={iconStyle} />);
+  it('should be disabled when enableIcon property is false', () => {
+    const stopButton = shallow(<StopButton enableIcon={false} />);
     const icon = stopButton.find('Icon');
 
     expect(icon.props().disabled).toBe(true);
   });
 
-  it('Should render enabled Icon when enableIcon property is true', () => {
-    const stopButton = shallow(<StopButton enableIcon iconStyle={iconStyle} />);
+  it('should be enabled when enableIcon property is true', () => {
+    const stopButton = shallow(<StopButton enableIcon />);
     const icon = stopButton.find('Icon');
 
     expect(icon.props().disabled).toBe(false);
   });
 
-  it('Icon name should be "enabledName" and Icon type should by "enabledType" when enableIcon property is true', () => {
-    const stopButton = shallow(<StopButton enableIcon iconStyle={iconStyle} />);
+  it('should have enabled icon when enabeIcon is true', () => {
+    const stopButton = shallow(<StopButton enableIcon />);
     const icon = stopButton.find('Icon');
-    const iconNameExpected = 'enabledName';
-    const iconTypeExpected = 'enabledType';
+    const iconNameExpected = 'stop-circle-o';
+    const iconTypeExpected = 'font-awesome';
 
     expect(icon.props().name).toBe(iconNameExpected);
     expect(icon.props().type).toBe(iconTypeExpected);
   });
 
-  it('Icon name should be "disabledName" and Icon type should by "disabledType" when enableIcon property is false', () => {
-    const stopButton = shallow(<StopButton enableIcon={false} iconStyle={iconStyle} />);
+  it('should have disabled icon when enableIcon property is false', () => {
+    const stopButton = shallow(<StopButton enableIcon={false} />);
     const icon = stopButton.find('Icon');
-    const iconNameExpected = 'disabledName';
-    const iconTypeExpected = 'disabledType';
+    const iconNameExpected = 'circle';
+    const iconTypeExpected = 'font-awesome';
 
     expect(icon.props().name).toBe(iconNameExpected);
     expect(icon.props().type).toBe(iconTypeExpected);
   });
 
-  it('Icon color should be "enabledColor" when enableIcon property is true', () => {
-    const stopButton = shallow(<StopButton enableIcon iconStyle={iconStyle} />);
+  it('should be RED when enableIcon property is true', () => {
+    const stopButton = shallow(<StopButton enableIcon />);
     const icon = stopButton.find('Icon');
-    const iconColorExpected = 'enabledColor';
+    const colorExpected = 'red';
 
-    expect(icon.props().color).toBe(iconColorExpected);
+    expect(icon.props().color).toBe(colorExpected);
   });
 
-  it('Icon color should be "disabledColor" when enableIcon property is false', () => {
-    const stopButton = shallow(<StopButton enableIcon={false} iconStyle={iconStyle} />);
+  it('should be BLACK when enableIcon property is false', () => {
+    const stopButton = shallow(<StopButton enableIcon={false} />);
     const icon = stopButton.find('Icon');
-    const iconColorExpected = 'disabledColor';
+    const colorExpected = 'black';
 
-    expect(icon.props().color).toBe(iconColorExpected);
+    expect(icon.props().color).toBe(colorExpected);
   });
 
 
-  it('Icon style should be "enabledStyle" when enableIcon property is true', () => {
-    const stopButton = shallow(<StopButton enableIcon iconStyle={iconStyle} />);
+  it('should have styles', () => {
+    const stopButton = shallow(<StopButton enableIcon />);
     const icon = stopButton.find('Icon');
-    const iconStyleExpected = { width: 0 };
+    const styleExpected = {marginRight: 10, marginLeft: 10};
 
-    expect(icon.props().iconStyle).toEqual(iconStyleExpected);
-  });
-
-  it('Icon style should be "disabledStyler" when enableIcon property is false', () => {
-    const stopButton = shallow(<StopButton enableIcon={false} iconStyle={iconStyle} />);
-    const icon = stopButton.find('Icon');
-    const iconColorExpected = { width: 1 };
-
-    expect(icon.props().iconStyle).toEqual(iconColorExpected);
+    expect(icon.props().iconStyle).toEqual(styleExpected);
   });
 });
