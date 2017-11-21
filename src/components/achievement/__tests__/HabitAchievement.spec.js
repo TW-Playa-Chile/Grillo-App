@@ -1,6 +1,7 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import sinon from 'sinon';
 import HabitAchievement from './../HabitAchievement';
 
 
@@ -16,7 +17,6 @@ describe('Display achievements every 5 days', () => {
   it('Should Render a HabbitAchievement component', () => {
     expect(achievementComponent.find('View').exists()).toBe(true);
   });
-
 
   it('Should Render a Modal with the following message: Eres genial!', () => {
     expect(achievementComponent.find('Text').exists()).toBe(true);
@@ -34,6 +34,17 @@ describe('Display achievements every 5 days', () => {
   it('Should Render a Modal with the list of achievements', () => {
     const achievements = ['No fumar', 'Salir a Correr', 'Beber agua'];
     achievementComponent = shallow(<HabitAchievement achievements={achievements} />);
+  });
+
+  it('Should contain a button element', () => {
+    expect(achievementComponent.find('Button').exists()).toBe(true);
+  });
+
+  it('Button should be clickeable', () => {
+    const onPress = sinon.spy();
+    achievementComponent = shallow(<HabitAchievement onPress={onPress} />);
+    achievementComponent.find('Button').simulate('press');
+    expect(onPress.calledOnce).toBe(true);
   });
 });
 

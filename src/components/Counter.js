@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Badge, Text } from 'react-native-elements';
+import { Badge } from 'react-native-elements';
 import 'moment/locale/es';
 import moment from 'moment';
-import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, FONT_NORMAL, FONT_BOLD } from './../styles/common';
+import { COLOR_SECONDARY } from './../styles/common';
 
 export default class Counter extends Component {
   static propTypes = {
@@ -14,7 +14,7 @@ export default class Counter extends Component {
     super(props);
     this.state = {
       time: Date.now(),
-    }
+    };
   }
 
   componentDidMount() {
@@ -27,16 +27,15 @@ export default class Counter extends Component {
 
   timeBadge = (startDate, endDate) => {
     if (!endDate) {
-      let a = moment(startDate);
-      let b = moment().format();
-      let diff = a.diff(b, 'days')
-      return (diff==0) ? 'menos de un día' : diff+" días"
-    } else {
-      let a = moment(startDate);
-      let b = moment(endDate);
-      let diff = a.diff(b, 'days')
-      return (diff==0) ? 'menos de un día' : diff+" días"
+      const a = moment(startDate);
+      const b = moment().format();
+      const diff = a.diff(b, 'days');
+      return (diff === 0) ? 'menos de un día' : `${diff} días`;
     }
+    const a = moment(startDate);
+    const b = moment(endDate);
+    const diff = a.diff(b, 'days');
+    return (diff === 0) ? 'menos de un día' : `${diff} días`;
   }
 
   statusColor = (status) => {
@@ -47,13 +46,15 @@ export default class Counter extends Component {
         return 'red';
       case 'reactivated':
         return 'orange';
+      default:
+        return COLOR_SECONDARY;
     }
   }
 
   render() {
     const { startDate, endDate, status } = this.props;
     return (
-      <Badge containerStyle={{ backgroundColor: this.statusColor(status)}} value={this.timeBadge(startDate, endDate)} />
-    )
+      <Badge containerStyle={{ backgroundColor: this.statusColor(status) }} value={this.timeBadge(startDate, endDate)} />
+    );
   }
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, View } from 'react';
 import PropTypes from 'prop-types';
 import { BackHandler } from 'react-native';
 import { NavigationActions, addNavigationHelpers } from 'react-navigation/src/react-navigation';

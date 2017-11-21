@@ -3,11 +3,13 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Immutable from 'immutable';
-import { StyleSheet, Text, View, ListView, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, Dimensions } from 'react-native';
 import { List, Button, Card } from 'react-native-elements';
 import HabitItem from './../components/HabitItem';
 import * as HabitActions from '../actions/habits';
-import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, BORDER_RADIUS, FONT_NORMAL, FONT_BOLD } from './../styles/common';
+import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, BORDER_RADIUS, FONT_BOLD } from './../styles/common';
+import HabitAchievement from './../components/achievement/HabitAchievement';
+import noHabits from './../images/no_habits.png';
 
 const win = Dimensions.get('window');
 
@@ -22,11 +24,10 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR_PRIMARY,
   },
   scrollbox: {
-    height: win.height-300,
+    height: win.height - 300,
   },
   container: {
     flex: 1,
-    // marginTop:100,
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: '#fff',
-    width:'90%',
+    width: '90%',
     paddingTop: 15,
   },
   welcome: {
@@ -62,7 +63,6 @@ const styles = StyleSheet.create({
 });
 
 @connect(
-  // passing state as props
   state => ({ habits: state.habits }),
   dispatch => bindActionCreators(HabitActions, dispatch),
 )
@@ -74,9 +74,9 @@ export default class Home extends Component {
 
   constructor(props) {
     super(props);
-    const {stopHabit} = props;
+    const { stopHabit } = props;
 
-    this.stopHabit = (habit) => stopHabit(habit);
+    this.stopHabit = habit => stopHabit(habit);
   }
 
   toStopHabit = (habit) => {
@@ -88,41 +88,41 @@ export default class Home extends Component {
   };
 
   habitList = () => {
-    let currentHabits = Immutable.Map(this.props.habits).get('habits');
-    if (currentHabits.length < 1)
-      return <Image
+    const currentHabits = Immutable.Map(this.props.habits).get('habits');
+    if (currentHabits.length < 1) {
+      return (<Image
         style={styles.image}
-        resizeMode={'contain'}   /* <= changed  */
-        source={require('./../images/no_habits.png')}
-      />
+        resizeMode="contain"
+        source={noHabits}
+      />);
+    }
 
-return (
-  <ScrollView style={styles.scrollbox}>
-    <List>
-      { currentHabits.map((item, i) => <HabitItem key={i} habit={item} toStopHabit={this.toStopHabit} />) }
-    </List>
-  </ScrollView>
-)
-}
+    return (
+      <ScrollView style={styles.scrollbox}>
+        <List>
+          { currentHabits.map((item, index) => <HabitItem key={index} habit={item} toStopHabit={this.toStopHabit} />) }
+        </List>
+      </ScrollView>
+    );
+  }
 
-render() {
-let currentHabits = Immutable.Map(this.props.habits).get('habits');
-return (
-  <View style={styles.container}>
-    <Card style={styles.card}>
-      <Text h1 style={styles.welcome}>MIS HABITOS</Text>
-      { this.habitList() }
-      <Button
-        onPress={this.toAddHabit}
-        raised
-        icon={{name: 'add'}}
-        buttonStyle={styles.buttonAdd}
-        title='Agregar'
-        textStyle={styles.boldText}
-        raised={true}
-      />
-    </Card>
-  </View>
-);
-}
+  render() {
+    return (
+      <View style={styles.container}>
+        <Card style={styles.card}>
+          <Text h1 style={styles.welcome}>MIS HABITOS</Text>
+          { this.habitList() }
+          <Button
+            onPress={this.toAddHabit}
+            raised
+            icon={{ name: 'add' }}
+            buttonStyle={styles.buttonAdd}
+            title="Agregar"
+            textStyle={styles.boldText}
+          />
+        </Card>
+        <HabitAchievement />
+      </View>
+    );
+  }
 }
