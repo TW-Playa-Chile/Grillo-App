@@ -23,22 +23,25 @@ const states = {
 };
 
 const StopButton = (props) => {
-  const stopButtonIcon = props.enableIcon
+  const stopButtonIcon = props.enabled
     ? states.enabled
     : states.disabled;
   const {name, type, color, style} = stopButtonIcon;
-  const disabled = !props.enableIcon;
+  const disabled = !props.enabled;
 
   return (<Icon
     disabled={disabled}
     name={name}
     type={type}
     color={color}
-    iconStyle={style}/>);
+    iconStyle={style}
+    onPress={props.onStop}
+    />);
 };
 
 StopButton.propTypes = {
-  enableIcon: PropTypes.bool.isRequired
+  onStop: PropTypes.func.isRequired,
+  enabled: PropTypes.bool.isRequired
 };
 
 export default StopButton;

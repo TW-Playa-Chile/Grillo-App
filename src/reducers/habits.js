@@ -1,5 +1,3 @@
-
-import { status } from './../constants/habit';
 import { insertItem, updateObjectInArray } from './../helpers/arrayMethods';
 
 export const initialState = []

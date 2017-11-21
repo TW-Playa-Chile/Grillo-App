@@ -1,57 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { ListItem, Icon } from 'react-native-elements';
-import { StyleSheet } from 'react-native';
+import { ListItem } from 'react-native-elements';
+
 import Counter from './../components/Counter';
-import { COLOR_PRIMARY, COLOR_SECONDARY, BORDER_RADIUS, FONT_NORMAL, FONT_BOLD } from './../styles/common';
+import StopButton from './StopButton';
 
-const styles = StyleSheet.create({
-  button: {
-    padding: 0,
-    margin: 0,
-    backgroundColor: 'transparent',
-  },
-})
-
-export default class HabitItem extends Component {
-  static propTypes = {
-    habit: PropTypes.object.isRequired,
-    toStopHabit: PropTypes.func.isRequired,
-    toAddNotification: PropTypes.func.isRequired
+const HabitItem = (props) => {
+  const stopCounterAndNotify = (habit) => {
+    props.toStopHabit(habit);
+    props.toAddNotification(`El hábito ${habit.name} se ha detenido`);
   };
 
-  constructor(props) {
-    super(props);
-    const { toStopHabit, toAddNotification } = props;
+  const { habit } = props;
 
-    this.toStopHabit = (habit) => toStopHabit(habit);
-    this.toAddNotification = (msg, color) => toAddNotification(msg, color);
-  }
+  return (
+    <ListItem
+      title={habit.name}
+      leftIcon={<StopButton enabled={habit.status === 'active'} onStop={() => stopCounterAndNotify(habit)} />}
+      badge={{ element: <Counter startDate={habit.startDate} endDate={habit.endDate} status={habit.status} /> }}
+    />
+  );
+};
 
-  stopCounter = (habit) => {
-    this.toStopHabit(habit);
-    this.toAddNotification("El habito se ha detenido");
-  }
+HabitItem.propTypes = {
+  toStopHabit: PropTypes.func.isRequired,
+  toAddNotification: PropTypes.func.isRequired,
+  habit: PropTypes.object.isRequired
+};
 
-  stopButton = (habit) => {
-    return <Icon
-              name = 'stop-circle-o'
-              type = 'font-awesome'
-              color = '#000000'
-              iconStyle = {{marginRight: 10, marginLeft: 10}}
-              onPress={() => this.stopCounter(habit)}
-            />
-  }
-
-  render() {
-    const { habit, index } = this.props;
-    return (
-      <ListItem
-        title={habit.name}
-        switchDisabled={true}
-        leftIcon={this.stopButton(habit)}
-        badge={{element: <Counter startDate={habit.startDate} endDate={habit.endDate} status={habit.status} />}}
-      />
-    )
-  }
-}
+export default HabitItem;
