@@ -2,17 +2,46 @@ import React from 'react';
 import { Icon } from 'react-native-elements';
 import PropTypes from 'prop-types';
 
-const StopButton = (props) => {
-  const stopButtonIcon = props.enableIcon ? props.iconStyle.enabled : props.iconStyle.disabled;
-  const { name, type, color, style } = stopButtonIcon;
-  const disabled = !props.enableIcon;
+const style = {
+  marginRight: 10,
+  marginLeft: 10
+};
 
-  return (<Icon disabled={disabled} name={name} type={type} color={color} iconStyle={style} />);
+const states = {
+  enabled: {
+    name: 'stop-circle-o',
+    type: 'font-awesome',
+    color: 'red',
+    style
+  },
+  disabled: {
+    name: 'circle',
+    type: 'font-awesome',
+    color: 'black',
+    style
+  }
+};
+
+const StopButton = (props) => {
+  const stopButtonIcon = props.enabled
+    ? states.enabled
+    : states.disabled;
+  const { name, type, color } = stopButtonIcon;
+  const disabled = !props.enabled;
+
+  return (<Icon
+    disabled={disabled}
+    name={name}
+    type={type}
+    color={color}
+    iconStyle={style}
+    onPress={props.onStop}
+  />);
 };
 
 StopButton.propTypes = {
-  enableIcon: PropTypes.bool.isRequired,
-  iconStyle: PropTypes.object.isRequired
+  onStop: PropTypes.func.isRequired,
+  enabled: PropTypes.bool.isRequired
 };
 
 export default StopButton;

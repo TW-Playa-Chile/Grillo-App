@@ -6,7 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 import Counter from './../Counter';
 
-describe('Counter component', () => {
+describe('Counter', () => {
   const fiveDaysAgo = moment().subtract(5, 'd').format();
   const yesterday = moment().subtract(1, 'd').format();
 
