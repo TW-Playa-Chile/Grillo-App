@@ -8,13 +8,17 @@ import StopButton from './../StopButton';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('HabitItem', () => {
-  const habit = {
-    index: 'bdab7bbb-b469-7468-fe4c-0971b1a13abe',
-    name: 'Estudiar',
-    startDate: '2017-11-21T16:58:40-03:00',
-    endDate: '2017-11-21T16:59:02-03:00',
-    status: 'inactive'
-  };
+  let habit = {};
+
+  beforeEach(() => {
+    habit = {
+      index: 'bdab7bbb-b469-7468-fe4c-0971b1a13abe',
+      name: 'Estudiar',
+      startDate: '2017-11-21T16:58:40-03:00',
+      endDate: '2017-11-21T16:59:02-03:00',
+      status: 'inactive'
+    };
+  });
 
   it('should render component', () => {
     const component = shallow(<HabitItem habit={habit} toAddNotification={jest.fn()} toStopHabit={jest.fn()} navigation={jest.fn()} />);
@@ -30,4 +34,4 @@ describe('HabitItem', () => {
 
     expect(JSON.stringify(listItem.props().leftIcon)).toEqual(JSON.stringify(stopButton));
   });
-})
+});

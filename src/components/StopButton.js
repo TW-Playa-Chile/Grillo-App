@@ -1,11 +1,11 @@
 import React from 'react';
-import {Icon} from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 import PropTypes from 'prop-types';
 
 const style = {
   marginRight: 10,
   marginLeft: 10
-}
+};
 
 const states = {
   enabled: {
@@ -26,7 +26,7 @@ const StopButton = (props) => {
   const stopButtonIcon = props.enabled
     ? states.enabled
     : states.disabled;
-  const {name, type, color, style} = stopButtonIcon;
+  const { name, type, color } = stopButtonIcon;
   const disabled = !props.enabled;
 
   return (<Icon
@@ -36,7 +36,7 @@ const StopButton = (props) => {
     color={color}
     iconStyle={style}
     onPress={props.onStop}
-    />);
+  />);
 };
 
 StopButton.propTypes = {
