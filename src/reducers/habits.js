@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
     case 'stop_habit':
       return updateObjectInArray(state, action)
     default:
-      return state
+      return state;
 
   }
 };
