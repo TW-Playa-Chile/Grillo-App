@@ -11,7 +11,8 @@ describe('Display achievements every 5 days', () => {
   let achievementComponent;
 
   beforeEach(() => {
-    achievementComponent = shallow(<HabitAchievement />);
+    const onPress = sinon.spy();
+    achievementComponent = shallow(<HabitAchievement onPress={onPress} />);
   });
 
   it('Should Render a HabbitAchievement component', () => {
@@ -33,7 +34,8 @@ describe('Display achievements every 5 days', () => {
 
   it('Should Render a Modal with the list of achievements', () => {
     const achievements = ['No fumar', 'Salir a Correr', 'Beber agua'];
-    achievementComponent = shallow(<HabitAchievement achievements={achievements} />);
+    const onPress = sinon.spy();
+    achievementComponent = shallow(<HabitAchievement achievements={achievements} onPress={onPress} />);
   });
 
   it('Should contain a button element', () => {

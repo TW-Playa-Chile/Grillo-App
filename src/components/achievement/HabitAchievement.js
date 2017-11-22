@@ -34,7 +34,7 @@ const HabitAchievement = (props) => {
   const { onPress } = props;
   return (
     <View>
-      <Modal visible>
+      <Modal visible={false}>
         <Text h1 style={styles.welcome} >Eres genial!</Text>
         <Image
           source={NoHabitImage}
@@ -42,18 +42,15 @@ const HabitAchievement = (props) => {
           resizeMode="contain"
         />
         <Text h1 style={styles.welcome}>Ya cumpliste 5 días de:</Text>
-        <Button title="" onPress={onPress}>Close Modal...</Button>
+        <Button title="" onPress={onPress}>X</Button>
       </Modal>
     </View>
   );
 };
 
 HabitAchievement.propTypes = {
-  onPress: PropTypes.func
+  onPress: PropTypes.func.isRequired
 };
 
-HabitAchievement.defaultProps = {
-  onPress: () => {}
-};
 
 export default HabitAchievement;

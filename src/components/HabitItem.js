@@ -17,21 +17,20 @@ export default class HabitItem extends Component {
   static propTypes = {
     habit: PropTypes.object.isRequired,
     toStopHabit: PropTypes.func.isRequired,
+    toAddNotification: PropTypes.func.isRequired
   };
 
   constructor(props) {
     super(props);
-    const { toStopHabit } = props;
-
-    this.state = {
-      // time: Date.now(),
-    }
+    const { toStopHabit, toAddNotification } = props;
 
     this.toStopHabit = (habit) => toStopHabit(habit);
+    this.toAddNotification = (msg, color) => toAddNotification(msg, color);
   }
 
   stopCounter = (habit) => {
-    this.toStopHabit(habit)
+    this.toStopHabit(habit);
+    this.toAddNotification("El habito se ha detenido");
   }
 
   stopButton = (habit) => {
@@ -49,6 +48,7 @@ export default class HabitItem extends Component {
     return (
       <ListItem
         title={habit.name}
+        switchDisabled={true}
         leftIcon={this.stopButton(habit)}
         badge={{element: <Counter startDate={habit.startDate} endDate={habit.endDate} status={habit.status} />}}
       />
