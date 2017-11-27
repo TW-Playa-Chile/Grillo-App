@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, View, Text, Image, StyleSheet, Dimensions, Button } from 'react-native';
+import { Modal, View, Text, Image, StyleSheet, Dimensions, Button, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
 import NoHabitImage from './../../images/no_habits.png';
 import { COLOR_PRIMARY, COLOR_SECONDARY, COLOR_BACKGROUND, BORDER_RADIUS, FONT_BOLD } from '../../styles/common';
