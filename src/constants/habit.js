@@ -14,5 +14,6 @@ export class Habit {
     this.startDate = moment().format();
     this.endDate = null;
     this.status = status.ACTIVE;
+    this.seen = false;
   }
 }

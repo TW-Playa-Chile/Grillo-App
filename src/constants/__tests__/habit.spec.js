@@ -27,4 +27,9 @@ describe('Generate a new Habit', () => {
 
     expect(habit.startDate).toBe(fakeDate);
   });
+
+  it('Should generate a new habit with property "seen" with false as default ', () => {
+    const habit = new Habit('Correr');
+    expect(habit.seen).toBe(false);
+  });
 });
