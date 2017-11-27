@@ -4,7 +4,7 @@ export const initialState = [];
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'add_notification':
+    case 'add_modal':
       return insertItem(state, action);
     default:
       return state;

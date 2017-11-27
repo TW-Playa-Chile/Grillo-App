@@ -12,9 +12,6 @@ const win = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   notificationBox: {
-    width: win.width,
-    height: 40,
-    justifyContent: 'center',
     position: 'absolute',
     bottom: 0,
   },
@@ -23,16 +20,12 @@ const styles = StyleSheet.create({
     height: 40,
     justifyContent: 'center',
     backgroundColor: COLOR_SECONDARY,
-    position: 'absolute',
-    bottom: 0,
   },
   notificationRed: {
     width: win.width,
     height: 40,
     justifyContent: 'center',
     backgroundColor: 'red',
-    position: 'absolute',
-    bottom: 0,
   },
   notificationMessage: {
     color: 'white',
@@ -82,10 +75,10 @@ export default class Notifications extends Component {
     const { notifications } = this.props;
 
     return (
-      <View style={ styles.notificationBox }>
-        { msg.length>0 &&
-          <View style={ (color == "green") ? styles.notificationGreen : styles.notificationRed }>
-            <Text style={ styles.notificationMessage }>{ msg }</Text>
+      <View style={styles.notificationBox}>
+        { msg.length > 0 &&
+          <View style={(color == 'green') ? styles.notificationGreen : styles.notificationRed}>
+            <Text style={styles.notificationMessage}>{ msg }</Text>
           </View>
         }
       </View>
