@@ -8,6 +8,7 @@ import HabitItem from './../components/HabitItem';
 
 import { stopHabit } from '../actions/habits';
 import { addNotification } from '../actions/notifications';
+import { addModal } from '../actions/modals';
 import NO_HABITS_IMAGE from './../images/no_habits.png';
 
 const win = Dimensions.get('window');
@@ -61,10 +62,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   toStopHabit: (habit) => {
     dispatch(stopHabit(habit));
+    dispatch(addModal('close_habit'));
   },
   toAddNotification: (message, color) => {
     dispatch(addNotification(message, color));
-  }
+  },
 });
 
 export default connect(
