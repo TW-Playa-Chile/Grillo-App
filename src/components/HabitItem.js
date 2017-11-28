@@ -8,7 +8,6 @@ import StopButton from './StopButton';
 const HabitItem = (props) => {
   const stopCounterAndNotify = (habit) => {
     props.toStopHabit(habit);
-    props.toAddNotification(`El hábito ${habit.name} se ha detenido`);
   };
 
   const { habit } = props;
@@ -24,7 +23,6 @@ const HabitItem = (props) => {
 
 HabitItem.propTypes = {
   toStopHabit: PropTypes.func.isRequired,
-  toAddNotification: PropTypes.func.isRequired,
   habit: PropTypes.object.isRequired
 };
 

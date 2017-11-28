@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import AppNavigator from '../navigator';
 import Notifications from './Notifications';
 import ModalClose from './../components/ModalClose';
+import { addNotification } from '../actions/notifications';
 
 const win = Dimensions.get('window');
 
@@ -17,14 +18,12 @@ const styles = StyleSheet.create({
   }
 });
 
-@connect(
-  state => ({ nav: state.nav, modals: state.modals }),
-  dispatch => ({ dispatch }),
-)
-
-export default class AppWithNavigationState extends Component {
+export class AppWithNavigationState extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
+    nav: PropTypes.object.isRequired,
+    modals: PropTypes.arrayOf(PropTypes.object).isRequired,
+    toAddNotification: PropTypes.func.isRequired,
   };
 
   componentDidMount() {
@@ -39,13 +38,36 @@ export default class AppWithNavigationState extends Component {
   }
 
   render() {
-    const { dispatch, nav, modals } = this.props;
+    const {
+      dispatch,
+      nav,
+      modals,
+      toAddNotification
+    } = this.props;
     return (
       <View style={styles.container}>
         <AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />
         <Notifications />
-        <ModalClose modals={modals} />
+        <ModalClose modals={modals} toAddNotification={toAddNotification} />
       </View>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  nav: state.nav,
+  modals: state.modals
+});
+
+const mapDispatchToProps = dispatch => ({
+  toAddNotification: (message, color) => {
+    dispatch(addNotification(message, color));
+  },
+  dispatch
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AppWithNavigationState);
+

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { FormLabel, FormInput, FormValidationMessage, Button, Card } from 'react-native-elements';
+import { FormInput, FormValidationMessage, Button, Card } from 'react-native-elements';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as HabitActions from '../actions/habits';
@@ -53,6 +53,8 @@ const styles = StyleSheet.create({
 export default class AddHabit extends Component {
   static propTypes = {
     navigation: PropTypes.object.isRequired,
+    addHabit: PropTypes.func.isRequired,
+    addNotification: PropTypes.func.isRequired,
   };
 
   constructor(props) {
@@ -64,7 +66,7 @@ export default class AddHabit extends Component {
       habitError: false,
     };
 
-    this.addHabit = (name) => addHabit(name);
+    this.addHabit = (name) => { addHabit(name); };
     this.addNotification = (msg, color) => addNotification(msg, color);
   }
 
@@ -73,7 +75,7 @@ export default class AddHabit extends Component {
       this.setState({ habitError: true });
     } else {
       this.addHabit(this.state.habit);
-      this.addNotification("Se añadio su nuevo hábito", "green");
+      this.addNotification('Se añadio su nuevo hábito', 'green');
       this.props.navigation.goBack();
     }
   };
@@ -94,25 +96,23 @@ export default class AddHabit extends Component {
     const { habitError } = this.state;
     return (
       <View style={styles.container}>
-        <Card style={{backgroundColor: '#fff', width:'90%'}}>
+        <Card style={{ backgroundColor: '#fff', width: '90%' }}>
           <Text h1 style={styles.welcome}>NUEVO HÁBITO</Text>
           <Text style={styles.instructions}>Ingresa tu nuevo hábito</Text>
           <FormInput
-            shake={!habitError ? false : true}
-            ref={input => this.textInput = input}
+            shake={habitError}
             onChangeText={this.enterHabit}
           />
           { habitError &&
-              <FormValidationMessage >Debes ingresar un nombre para agregar el habito.</FormValidationMessage>
+            <FormValidationMessage>Debes ingresar un nombre para agregar el habito.</FormValidationMessage>
           }
           <Button
             onPress={this.addHabitToStore}
             raised
-            icon={{name: 'add'}}
+            icon={{ name: 'add' }}
             buttonStyle={styles.buttonAdd}
-            title='Agregar'
+            title="Agregar"
             textStyle={styles.boldText}
-            raised={true}
           />
         </Card>
         <TouchableOpacity onPress={this.handleBack}>
