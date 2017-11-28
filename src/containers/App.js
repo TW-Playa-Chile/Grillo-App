@@ -5,26 +5,26 @@ import { NavigationActions, addNavigationHelpers } from 'react-navigation/src/re
 import { connect } from 'react-redux';
 import AppNavigator from '../navigator';
 import Notifications from './Notifications';
+import ModalClose from './../components/ModalClose';
 
 const win = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0,
+    flex: 1,
     width: win.width,
     height: win.height,
   }
 });
 
 @connect(
-  state => ({ nav: state.nav }),
+  state => ({ nav: state.nav, modals: state.modals }),
   dispatch => ({ dispatch }),
 )
 
 export default class AppWithNavigationState extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
-    nav: PropTypes.object.isRequired,
   };
 
   componentDidMount() {
@@ -39,11 +39,12 @@ export default class AppWithNavigationState extends Component {
   }
 
   render() {
-    const { dispatch, nav } = this.props;
+    const { dispatch, nav, modals } = this.props;
     return (
       <View style={styles.container}>
         <AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />
         <Notifications />
+        <ModalClose modals={modals} />
       </View>
     );
   }
