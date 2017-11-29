@@ -24,7 +24,7 @@ describe('components', () => {
   });
 
   it('should pass if habit has a name', () => {
-    wrapper.enterHabit('A');
+    wrapper.enterHabit('Some name');
     wrapper.addHabitToStore();
     expect(wrapper.state.habitError).toBe(false);
   });
