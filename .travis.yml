@@ -6,15 +6,15 @@ install:
 - npm install
 android:
   components:
-  - add-ons;addon-google_apis-google-26
-  - build-tools;26.0.2
-  - extras;android;m2repository
-  - extras;google;m2repository
-  - extras;google;google_play_services
-  - extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2
-  - extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2
+  - addon-google_apis-google-26
+  - build-tools-26.0.2
+  - extra-android-m2repository
+  - extra-google-m2repository
+  - extra-google-google_play_services
+  - extra-m2repository-com-android-support-constraint-constraint-layout-1.0.2
+  - extra-m2repository-com-android-support-constraint-constraint-layout-solver-1.0.2
   - platform-tools
-  - platforms;android-26
+  - platforms-android-26
 script:
 - npm run test
 - nom run lint
