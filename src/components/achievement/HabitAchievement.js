@@ -3,6 +3,7 @@ import { Modal, View, Text, Image, StyleSheet, Dimensions, Button } from 'react-
 import PropTypes from 'prop-types';
 import NoHabitImage from './../../images/no_habits.png';
 import { COLOR_PRIMARY, FONT_BOLD } from '../../styles/common';
+import HabitListContainer from '../../containers/HabitList';
 
 
 const win = Dimensions.get('window');
@@ -42,7 +43,8 @@ const HabitAchievement = (props) => {
           resizeMode="contain"
         />
         <Text h1 style={styles.welcome}>Ya cumpliste 5 días de:</Text>
-        <Button title="" onPress={onPress}>X</Button>
+        <HabitListContainer />
+        <Button title="" onPress={onPress}>Close Modal</Button>
       </Modal>
     </View>
   );
