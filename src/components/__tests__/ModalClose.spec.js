@@ -10,8 +10,7 @@ describe('ModalClose component', () => {
   let component;
 
   beforeEach(() => {
-    component = shallow(<ModalClose modals={[]} />);
-    jest.useFakeTimers();
+    component = shallow(<ModalClose modals={[]} toAddNotification={jest.fn()} nav={{ goBack: jest.fn() }} />);
   });
 
   it('should render component', () => {
@@ -22,16 +21,17 @@ describe('ModalClose component', () => {
     expect(component.state().isOpen).toBe(false);
   });
 
-  it('should open when showing a modal', () => {
+  it('should open the modal', () => {
     component.instance().showModal();
 
     expect(component.state().isOpen).toBe(true);
   });
 
-  it('should close after 5 seg', () => {
+  it('should close modal pressing the close icon', () => {
+    const modalIcon = component.at(0).props().backdropContent;
     component.instance().showModal();
+    modalIcon.props.onPress();
 
-    expect(setTimeout.mock.calls.length).toBe(1);
-    expect(setTimeout.mock.calls[0][1]).toBe(5000);
+    expect(component.state().isOpen).toBe(false);
   });
 });
