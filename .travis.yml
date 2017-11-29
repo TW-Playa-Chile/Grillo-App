@@ -13,7 +13,7 @@ android:
       - android-26
 script:
   # - npm run lint
-  # - CI=true npm test
+  - CI=true npm run test -- --env=jsdom
   - cd android && ./gradlew assembleRelease
 deploy:
   provider: releases
