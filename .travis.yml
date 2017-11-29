@@ -6,7 +6,7 @@ install:
 - npm install
 android:
   components:
-  - add-ons;addon-google_apis-google-24
+  - add-ons;addon-google_apis-google-26
   - build-tools;26.0.2
   - extras;android;m2repository
   - extras;google;m2repository
