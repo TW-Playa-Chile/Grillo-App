@@ -10,6 +10,8 @@ export default (state = initialState, action) => {
       return insertItem(state, action);
     case 'stop_habit':
       return updateObjectInArray(state, action);
+    case 'see_habit':
+      return updateObjectInArray(state, action);
     default:
       return state;
   }
