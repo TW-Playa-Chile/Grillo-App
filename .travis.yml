@@ -17,6 +17,7 @@ script:
   - cd android && ./gradlew assembleRelease
 deploy:
   provider: releases
+  skip_cleanup: true
   api_key:
     secure: cswoiy+aJiuiLKBowYfT/Hvh+iUtlf5ek7xzjon+jf1wW5gkRfIjXNTozw8s68zaSx9BQJaNKr4yHZDUpXEx/jDD/ucCYldgx70tcjd5j+DB5kI+8fzYKE1mb6EBN/VV6AIlK/OcqHSYSCon4hkgWdfyQgnoZbkfqZJ9gL+dKFauM/wOWw0UTJ4mw4oIiNWFL6kV1c+4cnpCjW/WY0iFHz23gKw3koxXlefL2U9wM6qJwJgzWq2hN5ezB1lA9xoU2oSonQ/OduF5QyX1s3tu578VZoQrfjYnDvw8Kcz/1kIdQXcbtJ3fU/Xnsxx3TwNUafrkrfH6XJ48wANubsXsZNwn0scZ5nMMbFxiIjs0sqDNYqvJrgEI/v+zKCuV2vDwTkWPUpmt7W6bif+M5V2b05OC92EUH+IfksHUJs8zJZ5hknTYQ1e8CEBeOmmEX66s64QtUSnTP5qy4s+JeTsGupQbXp87LJQP2FpoKYBqDEdhQN68l5xhmlUUJPbxJso6PqDT1uv25r3O8DEPv5UOh8loaVWO6gXZYBGq8TGGOuoFzHLPHSTxMB2H7NS6QilTef6UmiYGgIBXd1DgTgawMlrryNyPTRxr3XmWMMfar2XwpwtvgZBZg/KnhmZ3YYqDS8KrgG8HxYG4zqsUao/UUT0++5fq4iNOF4gh6jNus/w=
   file: $TRAVIS_BUILD_DIR/android/app/build/outputs/apk/release/app-release-unsigned.apk
