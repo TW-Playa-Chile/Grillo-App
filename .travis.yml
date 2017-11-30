@@ -1,16 +1,20 @@
 language: android
+env:
+  - secure: "EtyQAN+j+IYaaZDaIWqwJTqPFdNMeNduJXlb9qZm+EqdBdnw8pjugoPCqEdS2/8LHrS6JFCLkzSaFkX66gRY7wTa6Wl4sLXCtWo6rXOwUPP4DR7a9VxV27GkuaKg94/0YEKgJSQExi3TZEAYyiarXSViBApDNoHxuRSaBpcEBXqZPuZDPWt6Cw9GtBnq+qnk5RqZK4gKVCp4IHBLzD7f4sGJkDCXqmvemG2FGWyql3pojNFKAgCGeIfkmaP1ETzsXv2yH4oqQr+EQyjOOvchcHF5dIS9qLn4Q/Sz+D9m/TLsbDNsN4mKBm1pbjlELrQ4mUBRZgxVyCt4nRucEN6SrFQ7+itEa/0/cbHgQw/xAUKrprK/4DnMD91uiLSLaxjXzxYirnox+ojDWtfFiMrzBDEXtebJIQkttqW1ddZbKAD714+Df1SjKiXQInviq4NcurRZxDDjcTwry9zWiuo8K9HJ2x7Y/inhj0/GdrvBJNEiggX3soIz/wBpD/6qUeqTJBVEK67BpCUSSyG+KZD6poF0OwIXT8SeXLESNOQ+16W4+RNV52P5bQfKmlVPlFHXKRGEIx9+4w/Oyv3lzzv+HjjsDbHuj8+V38Q7PtVYvMMSaLNITY458J0ZSY29TZxxHVVHCQaqYPRF76gFqV1133q9IqvEBViy7FvsPtUUXX0="
+  - secure: "hWxEV5UhG03a2iEW5DeKQkqVPvzZTNgPWqRSJMPN2QAkmLq+hMOCRXo6Cltb6aSM1K5IXnHGdho3vP2YYDbi3uJi9mWA5id7INwZlL8RHb7y/Y9NtgFNOQd1DqT8mOOl4PG6dyJWtldzLi6SMZPmBal14AWD/QYDFa/k1RTNfFpHA+CsexZ9G1asFZ4cM2WCbNd8Yl6SMC3gcYw4ZGDQT5nhiX0Omi01pOVSE2c11ojGtk0IcvkWt996z4zn/US9XFMI1lJb3Dtj0P1XGMHpCBWByb+oIFVmCWjYtaHj4MTNhU+TCz37OLurJ8vJaT/8ChGvxQlLVgnvGXy5Gu3tqHV6R1MBEcL30OUCVsYeE00tdLIGKDqd9u87dOQ6HgrnhUfDZWdKQiGxqTDXUdx8kMC9sXZGBi24Y5zDuPYsMSX5Cj8TYF1OJSG5iv7YKwjqtZBRYDx4yiAScs/NvKz5nBopWA02AAosQ+e57dlFC2JTMsoe77vbhC58MDds6MUcPqUBcD2bt3Es46ryNmW5HKCr97Ebx0nq71tv4eemoGjcgQwtFbjBsopgccA2C5xu3pRMKMSitMNmwRKCu7qKn4DmTxgMgrHD/BVkaDVIELYlb2Y1WDTABugHPR8Omjq5zTyD1doBrZUw3G+CbV6ykGpeKCEFGK8bToYjBN3550k="
+android:
+  components:
+    - tools
+    - platform-tools
+    - tools
+    - build-tools-26.0.2
+    - android-26
 before_install:
 - nvm install 6
 - node --version
+- openssl aes-256-cbc -K $encrypted_5d83bcb2236f_key -iv $encrypted_5d83bcb2236f_iv -in ci/pepe-grillo.keystore.enc -out $TRAVIS_BUILD_DIR/ci/pepe-grillo.keystore -d
 install:
 - npm install
-android:
-  components:
-      - tools
-      - platform-tools
-      - tools
-      - build-tools-26.0.2
-      - android-26
 script:
   # - npm run lint
   - CI=true npm run test -- --env=jsdom
@@ -19,6 +23,8 @@ before_deploy:
   - git config --local user.name "Yerko Aguirre"
   - git config --local user.email "yerko.aguirre@gmail.com"
   - git tag "$(date +'%Y%m%d%H%M%S')"
+  - cd app/build/outputs/apk/
+  - java -jar uber-apk-signer-0.8.3.jar -a android/app/build/outputs/apk/release --ks $TRAVIS_BUILD_DIR/ci/pepe-grillo.keystore --ksAlias pepe-grillo-key --ksKeyPass $keypass --ksPass $storepass --skipZipAlign
 deploy:
   provider: releases
   skip_cleanup: true
