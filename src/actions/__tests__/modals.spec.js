@@ -1,10 +1,14 @@
 import * as actions from './../modals';
+import { Habit } from '../../constants/habit';
 
 describe('modal actions', () => {
   it('should create an habit with type add_notification', () => {
-    expect(actions.addModal('close_habit').type).toBe('add_modal');
+    const habit = new Habit('Habit One');
+    expect(actions.addModal('close_habit', habit).type).toBe('add_modal');
   });
   it('should create an habit with payload', () => {
-    expect(actions.addModal('close_habit').payload).toEqual({ open: true, type: 'close_habit' });
+    const habit = new Habit('Habit One');
+    const type = 'close_habit';
+    expect(actions.addModal('close_habit', habit).payload).toEqual({ type, habit });
   });
 });

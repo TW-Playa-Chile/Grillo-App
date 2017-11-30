@@ -35,20 +35,26 @@ export default class ModalClose extends Component {
 
     this.state = {
       isOpen: false,
+      habitName: '',
     };
   }
 
   componentWillReceiveProps(nextProps) {
     const lastModal = nextProps.modals.pop();
-    if (lastModal) { this.showModal(); }
+
+    if (lastModal && lastModal.type === 'close_habit') {
+      this.showModal(lastModal);
+    }
   }
 
-  showModal() {
-    this.setState({ isOpen: true });
+  showModal(lastModal) {
+    this.setState({ isOpen: true, habitName: lastModal.habit.name });
   }
 
   closeModal() {
-    this.setState({ isOpen: false });
+    const closedName = this.state.habitName;
+    this.setState({ isOpen: false, habitName: '' });
+    this.props.toAddNotification(`El hábito ${closedName} se ha detenido`, 'red');
   }
 
   render() {
@@ -57,12 +63,11 @@ export default class ModalClose extends Component {
     return (
       <Modal
         position="center"
-        backdropContent={<Icon color="white" style={{ position: 'absolute', top: 20, right: 20 }} name="close" type="font-awesome" onPress={() => this.closeModal()} />}
+        backdropContent={<Icon size={40} color="white" style={{ position: 'absolute', top: 20, right: 20 }} name="close" type="font-awesome" onPress={() => this.closeModal()} />}
         swipeToClose={false}
         backButtonClose
         isOpen={isOpen}
         style={styles.modal}
-        onClosed={() => this.props.toAddNotification('El hábito se ha detenido', 'red')}
       >
         <Image
           style={styles.image}

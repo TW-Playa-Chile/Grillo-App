@@ -2,6 +2,7 @@ import habitsReducer from './../habits';
 
 describe('habits reducer', () => {
   const initialState = [];
+
   it('returns existing state by default', () => {
     const state = [1, 2, 3];
     const result = habitsReducer(state, { type: 'anything' });

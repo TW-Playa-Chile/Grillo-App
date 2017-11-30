@@ -62,7 +62,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   toStopHabit: (habit) => {
     dispatch(stopHabit(habit));
-    dispatch(addModal('close_habit'));
+    dispatch(addModal('close_habit', habit));
   },
   toAddNotification: (message, color) => {
     dispatch(addNotification(message, color));
