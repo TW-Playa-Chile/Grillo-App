@@ -15,7 +15,7 @@ script:
   # - npm run lint
   - CI=true npm run test -- --env=jsdom
   - cd android && ./gradlew assembleRelease
-  - ls /home/travis/build/TW-Playa-Chile/Grillo-App/android/app/build/outputs/apk/release/
+  - ls $TRAVIS_BUILD_DIR
 deploy:
   provider: releases
   api_key:
