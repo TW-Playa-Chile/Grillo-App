@@ -15,7 +15,7 @@ script:
   # - npm run lint
   - CI=true npm run test -- --env=jsdom
   - cd android && ./gradlew assembleRelease
-  - ls $TRAVIS_BUILD_DIR
+  - file $TRAVIS_BUILD_DIR/android/app/build/outputs/apk/release/app-release-unsigned.apk
 deploy:
   provider: releases
   api_key:
