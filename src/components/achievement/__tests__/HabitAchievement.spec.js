@@ -32,12 +32,11 @@ describe('Display achievements every 5 days', () => {
     expect(achievementComponent.find('Text').children().at(1).text()).toContain('Ya cumpliste 5 días de:');
   });
 
-  xit('Should Render a Modal with the list of achievements', () => {
+  it('Should Render a Modal with the list of achievements', () => {
     const achievements = ['No fumar', 'Salir a Correr', 'Beber agua'];
     const onPress = sinon.spy();
     achievementComponent = shallow(<HabitAchievement achievements={achievements} onPress={onPress} />);
-    const achievementList = achievementComponent.find('ScrollView').children().at(0);
-    expect(achievementList.children().at(0).text()).toContain('No Fumar');
+    expect(achievementComponent.find('Connect(HabitList)').exists()).toBeTruthy();
   });
 
   it('Should contain a button element', () => {
