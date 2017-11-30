@@ -1,6 +1,6 @@
-export function addModal(type) {
+export function addModal(type, habit) {
   return {
     type: 'add_modal',
-    payload: { open: true, type }
+    payload: { type, habit }
   };
 }
