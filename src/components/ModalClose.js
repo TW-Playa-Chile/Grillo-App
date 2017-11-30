@@ -73,7 +73,6 @@ export default class ModalClose extends Component {
           style={styles.image}
           resizeMode="stretch"
           source={CLOSE_HABIT_IMAGE}
-
         />
       </Modal>
     );
