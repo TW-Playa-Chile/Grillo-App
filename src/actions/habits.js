@@ -24,3 +24,12 @@ export function cleanHabits() {
     type: 'clean_habits'
   };
 }
+
+export function seeHabit(habit) {
+  const seenHabit = habit;
+  seenHabit.seen = true;
+  return {
+    type: 'see_habit',
+    payload: seenHabit
+  };
+}
