@@ -24,6 +24,7 @@ before_deploy:
   - git config --local user.email "yerko.aguirre@gmail.com"
   - git tag "$(date +'%Y%m%d%H%M%S')"
   - cd app/build/outputs/apk/
+  - curl -O https://github.com/patrickfav/uber-apk-signer/releases/download/v0.8.3/uber-apk-signer-0.8.3.jar
   - java -jar uber-apk-signer-0.8.3.jar -a android/app/build/outputs/apk/release --ks $TRAVIS_BUILD_DIR/ci/pepe-grillo.keystore --ksAlias pepe-grillo-key --ksKeyPass $keypass --ksPass $storepass --skipZipAlign
 deploy:
   provider: releases
