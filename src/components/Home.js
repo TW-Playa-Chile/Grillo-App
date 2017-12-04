@@ -59,6 +59,8 @@ class Home extends Component {
             size={70}
             iconStyle={styles.buttonAdd}
             onPress={() => this.toAddHabit()}
+            accessible
+            accessibilityLabel="Enter habit button"
           />
         </Card>
       </View>

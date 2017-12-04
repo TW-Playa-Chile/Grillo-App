@@ -10,7 +10,8 @@
     "lint": "eslint src test *.js",
     "test": "jest",
     "remotedev": "remotedev-debugger --injectserver",
-    "postinstall": "npm run remotedev && rndebugger-open"
+    "postinstall": "npm run remotedev && rndebugger-open",
+    "functional": "wdio wdio.conf.js"
   },
   "remotedev": {
     "hostname": "localhost",
@@ -37,7 +38,8 @@
     "react-redux": "^5.0.3",
     "redux": "^3.3.1",
     "redux-persist": "4.10.2",
-    "redux-thunk": "^2.0.1"
+    "redux-thunk": "^2.0.1",
+    "wdio-appium-service": "^0.2.3"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.1",
@@ -63,7 +65,9 @@
     "remote-redux-devtools": "^0.5.4",
     "remotedev-rn-debugger": "^0.8.3",
     "sinon": "^4.1.2",
-    "uuid": "^3.1.0"
+    "uuid": "^3.1.0",
+    "wdio-jasmine-framework": "^0.3.2",
+    "webdriverio": "^4.9.11"
   },
   "jest": {
     "preset": "react-native",

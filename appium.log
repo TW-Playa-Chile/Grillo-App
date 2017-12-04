@@ -1,0 +1,180 @@
+[Appium] Welcome to Appium v1.7.1
+[Appium] Non-default server args:
+[Appium]   address: 127.0.0.1
+[Appium]   port: 4444
+[Appium]   defaultCapabilities: {
+[Appium]     automationName: XCUITest
+[Appium]   }
+[Appium] Default capabilities, which will be added to each request unless overridden by desired capabilities:
+[Appium]   automationName: 'XCUITest'
+[Appium] Appium REST http interface listener started on 127.0.0.1:4444
+[HTTP] --> POST /wd/hub/session {"desiredCapabilities":{"javascriptEnabled":true,"locationContextEnabled":true,"handlesAlerts":true,"rotatable":true,"maxInstances":5,"browserName":"firefox","platformName":"iOS","deviceName":"iPhone 6","app":"/Users/nicolasjustiniano/Workspace/thoughtworks/Grillo-App/ios/build/Build/Products/Debug-iphonesimulator/RNBoilerplate.app","requestOrigins":{"url":"http://webdriver.io","version":"4.9.11","name":"webdriverio"}}}
+[debug] [MJSONWP] Calling AppiumDriver.createSession() with args: [{"javascriptEnabled":true,"locationContextEnabled":true,"handlesAlerts":true,"rotatable":true,"maxInstances":5,"browserName":"firefox","platformName":"iOS","deviceName":"iPhone 6","app":"/Users/nicolasjustiniano/Workspace/thoughtworks/Grillo-App/ios/build/Build/Products/Debug-iphonesimulator/RNBoilerplate.app","requestOrigins":{"url":"http://webdriver.io","version":"4.9.11","name":"webdriverio"}},null,null]
+[debug] [BaseDriver] Event 'newSessionRequested' logged at 1512409020072 (14:37:00 GMT-0300 (-03))
+[Appium] Creating new XCUITestDriver (v2.51.1) session
+[Appium] Capabilities:
+[Appium]   javascriptEnabled: true
+[Appium]   locationContextEnabled: true
+[Appium]   handlesAlerts: true
+[Appium]   rotatable: true
+[Appium]   maxInstances: 5
+[Appium]   browserName: 'firefox'
+[Appium]   platformName: 'iOS'
+[Appium]   deviceName: 'iPhone 6'
+[Appium]   app: '/Users/nicolasjustiniano/Workspace/thoughtworks/Grillo-App/ios/build/Build/Products/Debug-iphonesimulator/RNBoilerplate.app'
+[Appium]   requestOrigins: { url: 'http://webdriver.io',
+  version: '4.9.11',
+  name: 'webdriverio' }
+[Appium]   automationName: 'XCUITest'
+[BaseDriver] The following capabilities were provided, but are not recognized by appium: javascriptEnabled, locationContextEnabled, handlesAlerts, rotatable, maxInstances, requestOrigins.
+[BaseDriver] Session created with session id: b56eb4e8-6845-402b-8482-f6efed2d4961
+[debug] [XCUITest] Xcode version set to '9.1' (tools v9.1.0.0.1.1508540944)
+[debug] [XCUITest] iOS SDK Version set to '11.1'
+[debug] [BaseDriver] Event 'xcodeDetailsRetrieved' logged at 1512409020190 (14:37:00 GMT-0300 (-03))
+[XCUITest] Simulator udid not provided, using desired caps to create a new simulator
+[XCUITest] No platformVersion specified. Using latest version Xcode supports: '11.1' This may cause problems if a simulator does not exist for this platform version.
+[debug] [simctl] Creating simulator with name 'appiumTest-b56eb4e8-6845-402b-8482-f6efed2d4961', device type id 'iPhone 6' and runtime id '11.1'
+[iOSSim] Constructing iOS simulator for Xcode version 9.1 with udid 'CF9A15B4-368F-47AC-9CBC-DC388C339EF6'
+[XCUITest] Created simulator with udid 'CF9A15B4-368F-47AC-9CBC-DC388C339EF6'.
+[XCUITest] Determining device to run tests on: udid: 'CF9A15B4-368F-47AC-9CBC-DC388C339EF6', real device: false
+[BaseDriver] Using local app '/Users/nicolasjustiniano/Workspace/thoughtworks/Grillo-App/ios/build/Build/Products/Debug-iphonesimulator/RNBoilerplate.app'
+[debug] [BaseDriver] Event 'appConfigured' logged at 1512409021258 (14:37:01 GMT-0300 (-03))
+[debug] [XCUITest] Checking whether app '/Users/nicolasjustiniano/Workspace/thoughtworks/Grillo-App/ios/build/Build/Products/Debug-iphonesimulator/RNBoilerplate.app' is actually present on file system
+[debug] [XCUITest] App is present
+[debug] [iOS] Getting bundle ID from app '/Users/nicolasjustiniano/Workspace/thoughtworks/Grillo-App/ios/build/Build/Products/Debug-iphonesimulator/RNBoilerplate.app': 'org.reactjs.native.example.RNBoilerplate'
+[debug] [BaseDriver] Event 'resetStarted' logged at 1512409021262 (14:37:01 GMT-0300 (-03))
+[XCUITest] Not scrubbing third party app in anticipation of uninstall
+[debug] [BaseDriver] Event 'resetComplete' logged at 1512409021357 (14:37:01 GMT-0300 (-03))
+[debug] [iOSLog] Starting iOS 11.1 simulator log capture
+[debug] [iOSLog] System log path: /Users/nicolasjustiniano/Library/Logs/CoreSimulator/CF9A15B4-368F-47AC-9CBC-DC388C339EF6/system.log
+[debug] [BaseDriver] Event 'logCaptureStarted' logged at 1512409021478 (14:37:01 GMT-0300 (-03))
+[XCUITest] Setting up simulator
+[debug] [iOS] No reason to set locale
+[debug] [iOS] No iOS / app preferences to set
+[debug] [iOSSim] Setting common Simulator preferences to {"ConnectHardwareKeyboard":false}
+[debug] [iOSSim] Updated shared Simulator preferences at '/Users/nicolasjustiniano/Library/Preferences/com.apple.iphonesimulator.plist' with {"ConnectHardwareKeyboard":false}
+[debug] [iOSSim] The count of running Simulator UI client instances is 1
+[iOSSim] Booting Simulator with UDID CF9A15B4-368F-47AC-9CBC-DC388C339EF6...
+[iOSSim] Simulator with UDID CF9A15B4-368F-47AC-9CBC-DC388C339EF6 booted in 14 seconds
+[debug] [BaseDriver] Event 'simStarted' logged at 1512409036096 (14:37:16 GMT-0300 (-03))
+[debug] [XCUITest] Installing '/Users/nicolasjustiniano/Workspace/thoughtworks/Grillo-App/ios/build/Build/Products/Debug-iphonesimulator/RNBoilerplate.app' on Simulator with UUID 'CF9A15B4-368F-47AC-9CBC-DC388C339EF6'...
+[debug] [XCUITest] The app has been installed successfully.
+[debug] [BaseDriver] Event 'appInstalled' logged at 1512409038515 (14:37:18 GMT-0300 (-03))
+[XCUITest] Using WDA path: '/usr/local/lib/node_modules/appium/node_modules/appium-xcuitest-driver/WebDriverAgent'
+[XCUITest] Using WDA agent: '/usr/local/lib/node_modules/appium/node_modules/appium-xcuitest-driver/WebDriverAgent/WebDriverAgent.xcodeproj'
+[debug] [XCUITest] Capability 'useNewWDA' set to false, so trying to reuse currently running WDA instance at 'http://localhost:8100/'
+[debug] [JSONWP Proxy] Proxying [GET /status] to [GET http://localhost:8100/status] with no body
+[debug] [XCUITest] WDA is not listening at 'http://localhost:8100/'. Rebuilding...
+[debug] [BaseDriver] Event 'wdaStartAttempted' logged at 1512409038533 (14:37:18 GMT-0300 (-03))
+[XCUITest] Launching WebDriverAgent on the device
+[debug] [XCUITest] Carthage found: '/usr/local/bin/carthage'
+[debug] [XCUITest] Killing running processes 'xcodebuild.*CF9A15B4-368F-47AC-9CBC-DC388C339EF6, iproxy 8100, CF9A15B4-368F-47AC-9CBC-DC388C339EF6.*XCTRunner' for the device CF9A15B4-368F-47AC-9CBC-DC388C339EF6...
+[debug] [XCUITest] 'pgrep -nif xcodebuild.*CF9A15B4-368F-47AC-9CBC-DC388C339EF6' didn't detect any matching processes. Return code: 1
+[debug] [XCUITest] 'pgrep -nif iproxy 8100' didn't detect any matching processes. Return code: 1
+[debug] [XCUITest] 'pgrep -nif CF9A15B4-368F-47AC-9CBC-DC388C339EF6.*XCTRunner' didn't detect any matching processes. Return code: 1
+[debug] [XCUITest] Using Xcode 9.1, so fixing WDA codebase
+[debug] [XCUITest] Beginning test with command 'xcodebuild build-for-testing test-without-building -project /usr/local/lib/node_modules/appium/node_modules/appium-xcuitest-driver/WebDriverAgent/WebDriverAgent.xcodeproj -scheme WebDriverAgentRunner -destination id=CF9A15B4-368F-47AC-9CBC-DC388C339EF6 IPHONEOS_DEPLOYMENT_TARGET=11.1' in directory '/usr/local/lib/node_modules/appium/node_modules/appium-xcuitest-driver/WebDriverAgent'
+[debug] [XCUITest] Output from xcodebuild will not be logged. To see xcode logging, use 'showXcodeLog' desired capability
+[debug] [XCUITest] Waiting up to 60000ms for WebDriverAgent to start
+[debug] [JSONWP Proxy] Proxying [GET /status] to [GET http://localhost:8100/status] with no body
+[debug] [JSONWP Proxy] Proxying [GET /status] to [GET http://localhost:8100/status] with no body
+[debug] [JSONWP Proxy] Proxying [GET /status] to [GET http://localhost:8100/status] with no body
+[debug] [XCUITest] Log file for xcodebuild test: /var/folders/gw/5wz8ck3n119g5bscl9hk22hc0000gn/T/com.apple.dt.XCTest/IDETestRunSession-F5877AE9-C2BB-42C0-BD8D-59205D7BFD73/WebDriverAgentRunner-55F9416B-E003-462F-B1ED-9064EA21D88A/Session-WebDriverAgentRunner-2017-12-04_143722-5ov31L.log
+[debug] [JSONWP Proxy] Proxying [GET /status] to [GET http://localhost:8100/status] with no body
+[debug] [JSONWP Proxy] Proxying [GET /status] to [GET http://localhost:8100/status] with no body
+[debug] [JSONWP Proxy] Proxying [GET /status] to [GET http://localhost:8100/status] with no body
+[debug] [JSONWP Proxy] Proxying [GET /status] to [GET http://localhost:8100/status] with no body
+[debug] [JSONWP Proxy] Proxying [GET /status] to [GET http://localhost:8100/status] with no body
+[debug] [JSONWP Proxy] Proxying [GET /status] to [GET http://localhost:8100/status] with no body
+[debug] [JSONWP Proxy] Proxying [GET /status] to [GET http://localhost:8100/status] with no body
+[debug] [JSONWP Proxy] Proxying [GET /status] to [GET http://localhost:8100/status] with no body
+[debug] [JSONWP Proxy] Proxying [GET /status] to [GET http://localhost:8100/status] with no body
+[debug] [JSONWP Proxy] Got response with status 200: "{\n  \"value\" : {\n    \"state\" : \"success\",\n    \"os\" : {\n      \"name\" : \"iOS\",\n      \"version\" : \"11.1\"\n    },\n    \"ios\" : {\n      \"simulatorVersion\" : \"11.1\",\n      \"ip\" : \"10.76.124.37\"\n    },\n    \"build\" : {\n      \"time\" : \"Dec  4 2017 14:29:46\"\n    }\n  },\n  \"sessionId\" : \"8A29FFD9-19EE-4AE5-B08F-50002D2E3866\",\n  \"status\" : 0\n}"
+[debug] [XCUITest] WebDriverAgent running on ip '10.76.124.37'
+[debug] [XCUITest] WebDriverAgent successfully started after 7696ms
+[debug] [BaseDriver] Event 'wdaSessionAttempted' logged at 1512409046368 (14:37:26 GMT-0300 (-03))
+[debug] [XCUITest] Sending createSession command to WDA
+[debug] [JSONWP Proxy] Proxying [POST /session] to [POST http://localhost:8100/session] with body: {"desiredCapabilities":{"bundleId":"org.reactjs.native.example.RNBoilerplate","arguments":[],"environment":{},"shouldWaitForQuiescence":true,"shouldUseTestManagerForVisibilityDetection":false,"maxTypingFrequency":60,"shouldUseSingletonTestManager":true}}
+[debug] [JSONWP Proxy] Got response with status 200: {"value":{"sessionId":"0F596BCB-054A-412D-8BE3-06E24930DBF1","capabilities":{"device":"iphone","browserName":"RNBoilerplate","sdkVersion":"11.1","CFBundleIdentifier":"org.reactjs.native.example.RNBoilerplate"}},"sessionId":"0F596BCB-054A-412D-8BE3-06E24930DBF1","status":0}
+[debug] [BaseDriver] Event 'wdaSessionStarted' logged at 1512409048175 (14:37:28 GMT-0300 (-03))
+[debug] [XCUITest] Cannot find a match for DerivedData folder path from lsof. Trying to access logs
+[XCUITest] Setting '555' permissions to '/Users/nicolasjustiniano/Library/Developer/Xcode/DerivedData/WebDriverAgent-brdadhpuduowllgivnnvuygpwhzy/Logs/Test/Attachments' folder
+[debug] [BaseDriver] Event 'wdaPermsAdjusted' logged at 1512409048254 (14:37:28 GMT-0300 (-03))
+[debug] [BaseDriver] Event 'wdaStarted' logged at 1512409048254 (14:37:28 GMT-0300 (-03))
+[debug] [XCUITest] Setting initial orientation to 'PORTRAIT'
+[debug] [JSONWP Proxy] Proxying [POST /orientation] to [POST http://localhost:8100/session/0F596BCB-054A-412D-8BE3-06E24930DBF1/orientation] with body: {"orientation":"PORTRAIT"}
+[debug] [JSONWP Proxy] Got response with status 200: {"value":{},"sessionId":"0F596BCB-054A-412D-8BE3-06E24930DBF1","status":0}
+[debug] [BaseDriver] Event 'orientationSet' logged at 1512409049304 (14:37:29 GMT-0300 (-03))
+[Appium] New XCUITestDriver session created successfully, session b56eb4e8-6845-402b-8482-f6efed2d4961 added to master session list
+[debug] [BaseDriver] Event 'newSessionStarted' logged at 1512409049305 (14:37:29 GMT-0300 (-03))
+[debug] [MJSONWP] Responding to client with driver.createSession() result: {"webStorageEnabled":false,"locationContextEnabled":true,"browserName":"firefox","platform":"MAC","javascriptEnabled":true,"databaseEnabled":false,"takesScreenshot":true,"networkConnectionEnabled":false,"handlesAlerts":true,"rotatable":true,"maxInstances":5,"platformName":"iOS","deviceName":"iPhone 6","app":"/Users/nicolasjustiniano/Workspace/thoughtworks/Grillo-App/ios/build/Build/Products/Debug-iphonesimulator/RNBoilerplate.app","requestOrigins":{"url":"http://webdriver.io","version":"4.9.11","name":"webdriverio"},"automationName":"XCUITest","udid":"CF9A15B4-368F-47AC-9CBC-DC388C339EF6"}
+[HTTP] <-- POST /wd/hub/session 200 29239 ms - 668 
+[HTTP] --> POST /wd/hub/session/b56eb4e8-6845-402b-8482-f6efed2d4961/elements {"using":"accessibility id","value":"Enter habit button"}
+[debug] [MJSONWP] Calling AppiumDriver.findElements() with args: ["accessibility id","Enter habit button","b56eb4e8-6845-402b-8482-f6efed2d4961"]
+[debug] [XCUITest] Executing command 'findElements'
+[debug] [BaseDriver] Valid locator strategies for this request: xpath, id, name, class name, -ios predicate string, -ios class chain, accessibility id
+[debug] [BaseDriver] Waiting up to 0 ms for condition
+[debug] [JSONWP Proxy] Proxying [POST /elements] to [POST http://localhost:8100/session/0F596BCB-054A-412D-8BE3-06E24930DBF1/elements] with body: {"using":"accessibility id","value":"Enter habit button"}
+[debug] [JSONWP Proxy] Got response with status 200: {"value":[{"ELEMENT":"5FAB017C-C4FB-4828-9CB8-798D95CAEF7D"}],"sessionId":"0F596BCB-054A-412D-8BE3-06E24930DBF1","status":0}
+[debug] [MJSONWP] Responding to client with driver.findElements() result: [{"ELEMENT":"5FAB017C-C4FB-4828-9CB8-798D95CAEF7D"}]
+[HTTP] <-- POST /wd/hub/session/b56eb4e8-6845-402b-8482-f6efed2d4961/elements 200 140 ms - 124 
+[HTTP] --> POST /wd/hub/session/b56eb4e8-6845-402b-8482-f6efed2d4961/element {"using":"accessibility id","value":"Enter habit button"}
+[debug] [MJSONWP] Calling AppiumDriver.findElement() with args: ["accessibility id","Enter habit button","b56eb4e8-6845-402b-8482-f6efed2d4961"]
+[debug] [XCUITest] Executing command 'findElement'
+[debug] [BaseDriver] Valid locator strategies for this request: xpath, id, name, class name, -ios predicate string, -ios class chain, accessibility id
+[debug] [BaseDriver] Waiting up to 0 ms for condition
+[debug] [JSONWP Proxy] Proxying [POST /element] to [POST http://localhost:8100/session/0F596BCB-054A-412D-8BE3-06E24930DBF1/element] with body: {"using":"accessibility id","value":"Enter habit button"}
+[debug] [JSONWP Proxy] Got response with status 200: {"value":{"ELEMENT":"50CFF4AF-251D-43BF-95C7-12E43240C94E"},"sessionId":"0F596BCB-054A-412D-8BE3-06E24930DBF1","status":0}
+[debug] [MJSONWP] Responding to client with driver.findElement() result: {"ELEMENT":"50CFF4AF-251D-43BF-95C7-12E43240C94E"}
+[HTTP] <-- POST /wd/hub/session/b56eb4e8-6845-402b-8482-f6efed2d4961/element 200 121 ms - 122 
+[HTTP] --> POST /wd/hub/session/b56eb4e8-6845-402b-8482-f6efed2d4961/element/50CFF4AF-251D-43BF-95C7-12E43240C94E/click {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[debug] [XCUITest] Executing command 'proxyReqRes'
+[debug] [JSONWP Proxy] Proxying [POST /wd/hub/session/b56eb4e8-6845-402b-8482-f6efed2d4961/element/50CFF4AF-251D-43BF-95C7-12E43240C94E/click] to [POST http://localhost:8100/session/0F596BCB-054A-412D-8BE3-06E24930DBF1/element/50CFF4AF-251D-43BF-95C7-12E43240C94E/click] with body: {}
+[debug] [JSONWP Proxy] Got response with status 200: {"status":0,"id":"50CFF4AF-251D-43BF-95C7-12E43240C94E","value":"","sessionId":"0F596BCB-054A-412D-8BE3-06E24930DBF1"}
+[JSONWP Proxy] Replacing sessionId 0F596BCB-054A-412D-8BE3-06E24930DBF1 with b56eb4e8-6845-402b-8482-f6efed2d4961
+[HTTP] <-- POST /wd/hub/session/b56eb4e8-6845-402b-8482-f6efed2d4961/element/50CFF4AF-251D-43BF-95C7-12E43240C94E/click 200 582 ms - 118 
+[HTTP] --> POST /wd/hub/session/b56eb4e8-6845-402b-8482-f6efed2d4961/elements {"using":"accessibility id","value":"Add habit button"}
+[debug] [MJSONWP] Calling AppiumDriver.findElements() with args: ["accessibility id","Add habit button","b56eb4e8-6845-402b-8482-f6efed2d4961"]
+[debug] [XCUITest] Executing command 'findElements'
+[debug] [BaseDriver] Valid locator strategies for this request: xpath, id, name, class name, -ios predicate string, -ios class chain, accessibility id
+[debug] [BaseDriver] Waiting up to 0 ms for condition
+[debug] [JSONWP Proxy] Proxying [POST /elements] to [POST http://localhost:8100/session/0F596BCB-054A-412D-8BE3-06E24930DBF1/elements] with body: {"using":"accessibility id","value":"Add habit button"}
+[debug] [JSONWP Proxy] Got response with status 200: {"value":[{"ELEMENT":"AA0F8862-597B-4A94-B2CE-D84FEA7DC932"},{"ELEMENT":"7B398580-0D19-4C1A-9D54-3BA5C59732EC"}],"sessionId":"0F596BCB-054A-412D-8BE3-06E24930DBF1","status":0}
+[debug] [MJSONWP] Responding to client with driver.findElements() result: [{"ELEMENT":"AA0F8862-597B-4A94-B2CE-D84FEA7DC932"},{"ELEMENT":"7B398580-0D19-4C1A-9D54-3BA5C59732EC"}]
+[HTTP] <-- POST /wd/hub/session/b56eb4e8-6845-402b-8482-f6efed2d4961/elements 200 151 ms - 175 
+[HTTP] --> POST /wd/hub/session/b56eb4e8-6845-402b-8482-f6efed2d4961/element {"using":"accessibility id","value":"Add habit button"}
+[debug] [MJSONWP] Calling AppiumDriver.findElement() with args: ["accessibility id","Add habit button","b56eb4e8-6845-402b-8482-f6efed2d4961"]
+[debug] [XCUITest] Executing command 'findElement'
+[debug] [BaseDriver] Valid locator strategies for this request: xpath, id, name, class name, -ios predicate string, -ios class chain, accessibility id
+[debug] [BaseDriver] Waiting up to 0 ms for condition
+[debug] [JSONWP Proxy] Proxying [POST /element] to [POST http://localhost:8100/session/0F596BCB-054A-412D-8BE3-06E24930DBF1/element] with body: {"using":"accessibility id","value":"Add habit button"}
+[debug] [JSONWP Proxy] Got response with status 200: {"value":{"ELEMENT":"0871E188-A363-43DA-9D5A-9A1096F3BC82"},"sessionId":"0F596BCB-054A-412D-8BE3-06E24930DBF1","status":0}
+[debug] [MJSONWP] Responding to client with driver.findElement() result: {"ELEMENT":"0871E188-A363-43DA-9D5A-9A1096F3BC82"}
+[HTTP] <-- POST /wd/hub/session/b56eb4e8-6845-402b-8482-f6efed2d4961/element 200 161 ms - 122 
+[HTTP] --> POST /wd/hub/session/b56eb4e8-6845-402b-8482-f6efed2d4961/element/0871E188-A363-43DA-9D5A-9A1096F3BC82/click {}
+[MJSONWP] Driver proxy active, passing request on via HTTP proxy
+[debug] [XCUITest] Executing command 'proxyReqRes'
+[debug] [JSONWP Proxy] Proxying [POST /wd/hub/session/b56eb4e8-6845-402b-8482-f6efed2d4961/element/0871E188-A363-43DA-9D5A-9A1096F3BC82/click] to [POST http://localhost:8100/session/0F596BCB-054A-412D-8BE3-06E24930DBF1/element/0871E188-A363-43DA-9D5A-9A1096F3BC82/click] with body: {}
+[debug] [JSONWP Proxy] Got response with status 200: {"status":0,"id":"0871E188-A363-43DA-9D5A-9A1096F3BC82","value":"","sessionId":"0F596BCB-054A-412D-8BE3-06E24930DBF1"}
+[JSONWP Proxy] Replacing sessionId 0F596BCB-054A-412D-8BE3-06E24930DBF1 with b56eb4e8-6845-402b-8482-f6efed2d4961
+[HTTP] <-- POST /wd/hub/session/b56eb4e8-6845-402b-8482-f6efed2d4961/element/0871E188-A363-43DA-9D5A-9A1096F3BC82/click 200 623 ms - 118 
+[HTTP] --> DELETE /wd/hub/session/b56eb4e8-6845-402b-8482-f6efed2d4961 {}
+[debug] [MJSONWP] Calling AppiumDriver.deleteSession() with args: ["b56eb4e8-6845-402b-8482-f6efed2d4961"]
+[debug] [BaseDriver] Event 'quitSessionRequested' logged at 1512409051273 (14:37:31 GMT-0300 (-03))
+[Appium] Removing session b56eb4e8-6845-402b-8482-f6efed2d4961 from our master session list
+[debug] [JSONWP Proxy] Proxying [DELETE /session/b56eb4e8-6845-402b-8482-f6efed2d4961] to [DELETE http://localhost:8100/session/0F596BCB-054A-412D-8BE3-06E24930DBF1] with no body
+[debug] [JSONWP Proxy] Got response with status 200: "{\n  \"value\" : {\n\n  },\n  \"sessionId\" : \"69D7BC32-6E7C-4228-9496-484663777931\",\n  \"status\" : 0\n}"
+[XCUITest] Setting '755' permissions to '/Users/nicolasjustiniano/Library/Developer/Xcode/DerivedData/WebDriverAgent-brdadhpuduowllgivnnvuygpwhzy/Logs/Test/Attachments' folder
+[debug] [XCUITest] Not clearing log files. Use `clearSystemFiles` capability to turn on.
+[debug] [XCUITest] Killing running processes 'xcodebuild.*CF9A15B4-368F-47AC-9CBC-DC388C339EF6, CF9A15B4-368F-47AC-9CBC-DC388C339EF6.*XCTRunner' for the device CF9A15B4-368F-47AC-9CBC-DC388C339EF6...
+[XCUITest] xcodebuild exited with code 'null' and signal 'SIGINT'
+[debug] [XCUITest] 'pgrep -nif xcodebuild.*CF9A15B4-368F-47AC-9CBC-DC388C339EF6' didn't detect any matching processes. Return code: 1
+[debug] [XCUITest] 'pgrep -nif CF9A15B4-368F-47AC-9CBC-DC388C339EF6.*XCTRunner' didn't detect any matching processes. Return code: 1
+[debug] [XCUITest] Deleting simulator created for this run
+[debug] [iOSLog] Stopping iOS log capture
+[debug] [BaseDriver] Event 'quitSessionFinished' logged at 1512409063470 (14:37:43 GMT-0300 (-03))
+[debug] [MJSONWP] Received response: null
+[debug] [MJSONWP] But deleting session, so not returning
+[debug] [MJSONWP] Responding to client with driver.deleteSession() result: null
+[HTTP] <-- DELETE /wd/hub/session/b56eb4e8-6845-402b-8482-f6efed2d4961 200 12198 ms - 76 

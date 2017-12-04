@@ -113,6 +113,8 @@ export default class AddHabit extends Component {
             buttonStyle={styles.buttonAdd}
             title="Agregar"
             textStyle={styles.boldText}
+            accessible
+            accessibilityLabel="Add habit button"
           />
         </Card>
         <TouchableOpacity onPress={this.handleBack}>
